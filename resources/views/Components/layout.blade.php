@@ -11,11 +11,18 @@
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
 <nav class="navbar bg-base-100">
 <div class="navbar-start">
 <a href="/" class="btn btn-ghost text-xl">UniGude</a>
 </div>
+<nav>
+    <a>Home</a>
+    <a>Scholerships</a>
+    <a>Academic test</a>
+</nav>
+
 <div class="navbar-end gap-2">
 <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
 <a href="#" class="btn btn-primary btn-sm">Sign Up</a>

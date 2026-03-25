@@ -15,7 +15,7 @@ class UniController extends Controller
 
     {
         //trying to have the uni's view:
-        $Universities = [
+        $PublicUniversities = [
             [
             'University' => 'University of Bahrain',
             'Overview' => '......',
@@ -29,14 +29,66 @@ class UniController extends Controller
             'Image' => 'images/Poly.jpg'
             ],
             [
+            'University' => 'Araibian Gulf University',
+            'Overview' => '......',
+            'Type' => 'Public University',
+            'Image' => 'images/AGU.jpg'
+            ]
+            
+        ];
+        $PrivateUniversities = [
+        [
             'University' => 'Royal College of Surgeons in Ireland',
             'Overview' => '......',
             'Type' => 'Private University',
             'Image' => 'images/RCSI.jpg'
             ]
+            ,
+            [
+            'University' => 'Gulf University',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/GulfUni.jpg'
+            ],
+            [
+            'University' => 'American University of Bahrain',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/AUBH.jpg'
+            ],
+            [
+            'University' => 'University of Technlogy',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/UTB.jpg'
+            ],
+            [
+            'University' => 'Ahlia University ',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/AU.jpg'
+            ],
+            [
+            'University' => 'Royal University for Women',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/RUW.jpg'
+            ],
+            [
+            'University' => 'Kingdom University',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/KU.jpg'
+            ]
         ];
-        return view('home', ['Universities'=> $Universities]);
+
+        return view('home', [
+        'PublicUniversities'=> $PublicUniversities, 
+        'PrivateUniversities' => $PrivateUniversities
+        ]);
     }
+    
+    
 
     /**
      * Show the form for creating a new resource.
