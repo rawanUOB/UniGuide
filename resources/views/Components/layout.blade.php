@@ -13,15 +13,24 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
-<nav class="navbar bg-base-100">
+<nav class="navbar bg-base-100 sticky top-0 z-50">
 <div class="navbar-start">
 <a href="/" class="btn btn-ghost text-xl">UniGude</a>
+<div class="flex space-x-4">
+        <a href="{{ route('home') }}"  class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md">Home</a>
+        <a href="{{ route('scholarships') }}" class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md  ">Scholerships</a>
+        <a href="{{ route('academic-tests') }}" class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md">Academic test</a>
+    </div>
 </div>
-<nav>
-    <a>Home</a>
-    <a>Scholerships</a>
-    <a>Academic test</a>
-</nav>
+<!--<nav class = "bg-white shadow-md">
+<div class="navbar-center hidden lg:flex">
+    <div class="flex space-x-4">
+        <a class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md">Home</a>
+        <a class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md ">Scholerships</a>
+        <a class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md">Academic test</a>
+    </div>
+</div>
+</nav> -->
 
 <div class="navbar-end gap-2">
 <a href="#" class="btn btn-ghost btn-sm">Sign In</a>

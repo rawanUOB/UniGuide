@@ -11,5 +11,12 @@ Route::get('/', function () {
 this is the first method **/
 
 //this is with controller: 
-Route::get('/', [UniController::class, 'index']); 
+Route::get('/', [UniController::class, 'index'])->name('home'); 
 
+Route::get('/scholarships', function () {
+    return view('scholarships');
+})->name('scholarships');
+
+Route::get('/academic-tests', function () {
+    return view('academic');
+})->name('academic-tests');
