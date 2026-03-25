@@ -20,3 +20,5 @@ Route::get('/scholarships', function () {
 Route::get('/academic-tests', function () {
     return view('academic');
 })->name('academic-tests');
+
+Route::get('/university/{name}', [UniController::class, 'show'])->name('university.show');

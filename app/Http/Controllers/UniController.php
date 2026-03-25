@@ -109,9 +109,9 @@ class UniController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($name)
     {
-        //
+        return view('university', ['name'=>$name]);
     }
 
     /**
