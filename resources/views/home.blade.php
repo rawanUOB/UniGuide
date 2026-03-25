@@ -1,5 +1,9 @@
 <x-layout>
     <x-slot:title>Home Page</x-slot:title>
+    <h1 class ="text-center text-5xl font-bold mt-6">Welcome to UniGude</h1>
+    <div class=" flex justify-center mt-4">
+        <input type ="text" placeholder="Search for University..." class = "text-center w-1000 h-8 bg-base-100 rounded-lg border border-grey-400  focus:ring " >
+    </div>
     <!--<div class="max-w-2xl mx-auto"> this one makes it line by line I 2 uni's in a line-->
     <div class ="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
     @foreach ($Universities as $University)

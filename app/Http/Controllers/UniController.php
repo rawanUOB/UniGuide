@@ -25,12 +25,14 @@ class UniController extends Controller
             [
             'University' => 'Bahrain Polytrchnic',
             'Overview' => '......',
-            'Type' => 'Public University'
+            'Type' => 'Public University',
+            'Image' => 'images/Poly.jpg'
             ],
             [
             'University' => 'Royal College of Surgeons in Ireland',
             'Overview' => '......',
-            'Type' => 'Private University'
+            'Type' => 'Private University',
+            'Image' => 'images/RCSI.jpg'
             ]
         ];
         return view('home', ['Universities'=> $Universities]);
