@@ -79,7 +79,32 @@ class UniController extends Controller
             'Overview' => '......',
             'Type' => 'Private University',
             'Image' => 'images/KU.jpg'
+            ],
+            [
+            'University' => 'Bahrain Institute of Banking and Finance',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/BIBF.jpg'
+            ],
+            [
+            'University' => 'Arab Open University',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/AOU.jpg'
+            ],
+            [
+            'University' => 'Applied Science University',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/ASU.jpg'
+            ], 
+            [
+            'University' => 'British University of Bahrain',
+            'Overview' => '......',
+            'Type' => 'Private University',
+            'Image' => 'images/BUBH.jpg'
             ]
+            
         ];
 
         return view('home', [
