@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\University;
 use Illuminate\Http\Request;
 
 class UniController extends Controller
@@ -23,7 +24,7 @@ class UniController extends Controller
             'Image' => 'images/UoB.jpg'
             ],
             [
-            'University' => 'Bahrain Polytrchnic',
+            'University' => 'Bahrain Polytechnic',
             'Overview' => '......',
             'Type' => 'Public University',
             'Image' => 'images/Poly.jpg'
@@ -136,7 +137,15 @@ class UniController extends Controller
      */
     public function show($name)
     {
-        return view('university', ['name'=>$name]);
+        //What I did first: return view('university', ['name'=>$name]);
+        //$university = University::where('name',$name)->with('colleges')->first(); 
+        //return view('university', compact ('university'));
+        $university = University::where('name', $name)->with('colleges')->first();
+
+        return view('university', [
+            'university' =>$university,
+            'name' => $name
+        ]); 
     }
 
     /**
