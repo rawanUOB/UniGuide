@@ -19,16 +19,16 @@ class UniversitySeeder extends Seeder
                 'University_fees' => '2 BHD per credit for Bahraini students. A full time student takes 60 credits per semester therefore 120BD.', 
                 'available_scholarships' => 'Fee exemption for students in need', 
                 'created_at' => now(),
-                'Updated_at' => now(), 
+                'updated_at' => now(), 
                 'image' => 'images/poly2.jpg' 
             ],
             [   'name' => 'Royal College of Surgeons in Ireland', 
                 'overview'=>'RCSI Bahrain is a private university located in Muharraq, it is specialized in providing high quality healthcare education including medicine and nursing programs.', 
                 'requirements' => ' Applicant must demonstrate strong academic performance and provide IELTS score of at least 6.5 overall. Relevant experience in healthcare settings and voluntary experience is required.', 
-                'University_fees' => ' Medicine: 14,900 BHD/year  (Bahraini students), 18,600 BHD  (Non-Bahraini students). Nursing: 4,500 BHD/year  (Bahraini students),  5,700  (Non-Bahraini students)', 'available_scholarships' => 'RCSI offers merit based scholerships. Medicine Scholarships provides up to  one-third disscount on tution fees, while Nursing scholarship covers the gull tuitoin fees. Applocats must meet a high academic requirements, submit a 200 word essay and attend an interview.', 
+                'University_fees' => ' Medicine: 14,900 BHD/year  (Bahraini students), 18,600 BHD  (Non-Bahraini students). Nursing: 4,500 BHD/year  (Bahraini students),  5,700  (Non-Bahraini students)', 
                 'available_scholarships' => 'RCSI offers merit based scholerships. Medicine Scholarships provides up to  one-third disscount on tution fees, while Nursing scholarship covers the gull tuitoin fees. Applocats must meet a high academic requirements, submit a 200 word essay and attend an interview.', 
                 'created_at' => now(),
-                'Updated_at' => now(), 
+                'updated_at' => now(), 
                 'image' => 'images/RCSI2.jpg' 
             ],
             [
