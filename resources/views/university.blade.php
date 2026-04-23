@@ -40,13 +40,14 @@
                 <div class ="grid grid-cols-3 gap-4">
                     @foreach ($university->colleges as $college)
                         <div class="group p-5 rounded-xl border bg-white/60 backdrop-blur-sm hover:shadow-lg hover:translate-y-1 transition duration-300 cursor-pointer">
-                            <p class="font-semibold text-gray-800 group-hover:text-blue-700 transition">
-                                {{ $college->name }}
-                            </p>
-
-                            <p class="text-sm text-gray-500 mt-1">
-                                Explore Programs ->
-                            </p>
+                            <a href="{{ route('colleges.show', $college->id) }}" class="cursor-pointer" >
+                                <p class="font-semibold text-gray-800 group-hover:text-blue-700 transition">
+                                    {{ $college->name }}  
+                                </p>
+                                <p class="text-sm text-gray-500 mt-1">
+                                    Explore Programs ->
+                                </p>
+                            </a>
                         </div> 
                     @endforeach
                 </div>
