@@ -24,7 +24,6 @@
 
             </div>
         </h2>
-
     </div>
-
+   
 </x-layout>

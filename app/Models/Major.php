@@ -10,4 +10,11 @@ class Major extends Model
     public function college(){
         return $this->belongsTo(College::class); 
     }
+
+    protected $casts = [
+    'Study_Plan' => 'array',
+    'Skills' => 'array',
+    'Career_Opportunities' => 'array',
+    ];
 }
+
