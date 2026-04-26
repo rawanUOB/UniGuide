@@ -40,5 +40,9 @@ class ChatBotController extends Controller
                 }
             }
         }
+            return response()->json([
+                'answer' => "I'm sorry, I couldn't find an answer in the database."
+            ]);
     }
+
 }
