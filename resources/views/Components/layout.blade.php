@@ -46,5 +46,77 @@
         <p>©contact info:</p>
     </div>
 </footer>
+
+<!-- the chatbot code -->
+<div id="chatBot" class="fixed bottom-6 right-6 bg-green-600 p-4 rounded-full cursor-pointer hover:bg-green-700 shadow-lg">
+    <img src="{{ asset('images/chatbot.jpg') }}" alt="Chatbot Icon" class="w-6 h-6">   
+</div>
+
+<div id="box" class="hidden fixed bottom-20 right-6 w-80 bg-white shadow-xl rounded-xl flex flex-col mb-2">
+    <div class="bg-green-600 text-white p-3 rounded-t-xl">
+        UniGuide Chatbot
+    </div>
+    <div id="content" class="p-3 h-64 overflow-y-auto text-sm text-gray-700">
+        Hello! How can I assist you today?
+    </div>
+
+    <div class="flex border-t">
+        <input id="user_input" type="text" placeholder="write your question here..." class="flex-1 p-2 outline-none">
+        <button onclick="sendMessage()" class="bg-green-600 text-white px-4 cursor-pointer hover:bg-green-700">Send</button>
+    </div>
+</div>
+
+<script>
+document.getElementById('chatBot').onclick = () => {
+    document.getElementById('box').classList.toggle('hidden');
+}; 
+
+function sendMessage() {
+    let input = document.getElementById('user_input');
+    let msg = input.value;
+
+    if (!msg.trim()) 
+        return;
+
+    let message = document.getElementById('content');
+
+    // Display the user's message in the chat box but make sure its secure (no XSS)
+    let userBubble = document.createElement('div');
+    userBubble.className = "bg-green-100 text-green-900  rounded-xl px-3 py-2 mb-2 max-w-[75%] ml-auto border-l-4 border-green-600";
+    userBubble.textContent = "You: " +msg; // This will automatically escape any HTML tags in the message
+    message.appendChild(userBubble);
+
+    fetch('/chatbot', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ message: msg })
+    })
+    .then(response => response.json())
+    .then(data => {
+        let message = document.getElementById('content');
+
+        //the bot response
+        let botBubble = document.createElement('div');
+        botBubble.className = "bg-blue-100 text-blue-900 self-start rounded-xl px-3 py-2 mb-2 max-w-[75%] border-l-4 border-blue-600";
+        botBubble.textContent = "UniGuideBot: " + data.answer; // This will automatically escape any HTML tags in the message
+        message.appendChild(botBubble);
+        message.scrollTop = message.scrollHeight; // Scroll to the bottom of the chat
+    })
+
+    input.value = '';
+}
+
+//so when the user presses enter it will send the message as well
+document.getElementById('user_input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+</script>
+<!--end of chatbot code -->
+
 </body> 
 </html>

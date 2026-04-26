@@ -3,6 +3,7 @@ use App\Http\Controllers\UniController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\MajorController;
+use App\Http\Controllers\ChatBotController;
 
 
 /* it says when someone visits / route them to the welcome 
@@ -27,3 +28,5 @@ Route::get('/university/{name}', [UniController::class, 'show'])->name('universi
 
 Route::get('/college/{id}', [CollegeController::class, 'show'])->name('colleges.show');
 Route::get('/major/{id}', [MajorController::class, 'show'])->name('majors.show');
+
+Route::post('/chatbot', [ChatBotController::class, 'askDB']);
