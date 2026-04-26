@@ -58,7 +58,7 @@ class UniController extends Controller
             'Image' => 'images/AUBH.jpg'
             ],
             [
-            'University' => 'University of Technlogy',
+            'University' => 'University of Technology',
             'Overview' => '......',
             'Type' => 'Private University',
             'Image' => 'images/UTB.jpg'

@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\UniController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\MajorController;
 
 
 /* it says when someone visits / route them to the welcome 
@@ -22,3 +24,6 @@ Route::get('/academic-tests', function () {
 })->name('academic-tests');
 
 Route::get('/university/{name}', [UniController::class, 'show'])->name('university.show');
+
+Route::get('/college/{id}', [CollegeController::class, 'show'])->name('colleges.show');
+Route::get('/major/{id}', [MajorController::class, 'show'])->name('majors.show');
