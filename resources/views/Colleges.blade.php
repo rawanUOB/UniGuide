@@ -21,7 +21,12 @@
                     </div>
                     
                 @endforeach
+            </div>
 
+            <div class="flex gap-4 justify-center mt-10">
+                <a href="{{ route('university.show', $college->university->name) }}" class="btn btn-primary">
+                    Back to University
+                </a>
             </div>
         </h2>
     </div>

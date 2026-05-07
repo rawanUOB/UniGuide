@@ -36,6 +36,7 @@
                 </div>
             </div>
         </div>
+
         {{-- Q2: is the student creative --}}
         <div class="card bg-base-100 shadow-sm mb-4">
             <div class="card-body">
@@ -64,6 +65,7 @@
                 </div>
             </div>
         </div>
+        
         {{-- Q3: problem solving  --}}
         <div class="card bg-base-100 shadow-sm mb-4">
             <div class="card-body">
