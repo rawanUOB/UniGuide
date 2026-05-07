@@ -15,7 +15,7 @@ class AIController extends Controller
 
     public function predict(Request $request)
     {
-        // Validate the incoming request data
+        //Validate the incoming data
         $validatedData = $request->validate([
             'math' => 'required|numeric',
             'creativity' => 'required|numeric',

@@ -3,7 +3,6 @@
         <h1 class="text-3xl font-bold text-blue-900 mb-6 text-center">
             {{ $major->name }}
         </h1>
-
         @if($major->video_link)
 
             <video class="w-full h-64 rounded-xl" controls>
@@ -82,8 +81,8 @@
             </div>
         </div>
         <div class="flex gap-4 justify-center">
-            <a href="{{ route('home') }}" class="btn btn-outline">
-                Back to Universities
+            <a href="{{ route('university.show', $major->college->university->name) }}" class="btn btn-outline">
+                Back to University
             </a>
             <a href="{{ route('colleges.show', $major->college_id) }}" class="btn btn-outline">
                 Back to College

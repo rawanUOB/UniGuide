@@ -5,6 +5,8 @@
             <p class="text-base-content/60">Based on your answers, here are your top major recommendations:</p>
         </div>
 
+        {{-- Here the system will check if the compatibility using cosine score was > 0.75 it will display it 
+        if not it'll show the  Decision tree recommendation --}}
         <div class="card bg-primary text-primary-content shadow-xl mb-8">
             <div class="card-body text-center">
                 <p class="text-sm font-semibold uppercase tracking-widest opacity-75">Your Best Match</p>
@@ -15,6 +17,7 @@
             </div>
         </div>
 
+        {{-- The system will display the top 3 matches based on cosine similarity and show a compatibility precentage --}}
         <h3 class="text-xl font-bold mb-4">Your Top 3 Matches</h3>
         <div class="flex flex-col gap-4 mb-10">
             @foreach($result['top_3'] as $index => $match)

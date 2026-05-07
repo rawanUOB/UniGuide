@@ -1,6 +1,7 @@
 <x-layout>
     @if($university)
 
+        <a href="{{ route('home') }}" class="text-gray-500 font-semibold mt-6">← Back to universities list</a>
         <!-- University name and logo -->
         <div class="max-w-5xl mx-auto p-4">
             <div class="flex items-center justify-center gap-3 px-4 border-b border-gray-300 mb-6 ">

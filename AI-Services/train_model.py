@@ -14,7 +14,7 @@ def train_model():
     Y_expanded = []
 
     for i in range(len(X)):
-        for _ in range(50):
+        for _ in range(50): #here we're generating 50 verity of possible trait profile for each major to feed to the AI
             noise = np.random.uniform(-0.05,0.05, size=X[i].shape)
             sample = np.clip(X[i] + noise, 0.0, 1.0)
             X_expanded.append(sample)

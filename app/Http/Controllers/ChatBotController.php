@@ -18,48 +18,51 @@ class ChatBotController extends Controller
 
         $message = strtolower(trim($request->message)); 
 
+        //ready structure of answers the chatbot will use 
         if($this->isGreeting($message)){
             return response()->json([
-                'answer' => "Hello! I'm UniGuide Bot. I am able to help you with:\n- University information\n- What majors a university offers\n- Where do you find a specific major\n- Comparing two majors\n- Explaining what a major is about"]);
+                'answer' => "Hello! I'm UniGuide Bot. I am able to help you with:
+                \n- What majors a university offers
+                \n- Where do you find a specific major
+                \n- Comparing two majors 
+                \n- Explaining what a major is about"]);
         }
 
         if ($this ->isAcademicTest($message)){
                     return response() ->json([
-                        'answer' => "Great! to take the test head to the Acedimic Test tab, and it will reccomend the top 3 majors."
+                        'answer' => "Great! to take the test head to the Acedimic Test tab, and it will 
+                        reccomend the top 3 majors."
                     ]); 
-                }
-        if($this->isHelp($message)){
-            return response()->json([
-                'answer' => "Here what I can help you with:\n 
-                ' Ask 'Explain to me X major'\n 
-                - Ask 'What majors does X university offers?'\n
-                - Ask 'What university offers X major?'\n
-                - Ask 'I need help deciding my major'" 
-            ]);
         }
+        
+        $majorsComparison = $this->compareMajorWithAI($message); //if the user asked to compare between two majors.
+        if ($majorsComparison)
+            return response()->json(['answer'=> $majorsComparison]); 
 
-        $majorExplanation = $this->explainMajorWithAI($message);
-        if ($majorExplanation) {
+        $majorExplanation = $this->explainMajorWithAI($message); // a major explaination 
+        if ($majorExplanation) 
             return response()->json(['answer' => $majorExplanation]);
-        }
+        
 
-        $universityMajors = $this->getUniversityMajors($message);
-        if($universityMajors){
+        $universityMajors = $this->getUniversityMajors($message); // will list all majors in a university
+        if($universityMajors)
             return response()->json(['answer' => $universityMajors]); 
-        }
+        
 
-        $majorsUniversity = $this->getMajorUniversities($message);
+        $majorsUniversity = $this->getMajorUniversities($message); //will check where can a major be found
         if ($majorsUniversity){
             return response()->json([
                 'answer' => $majorsUniversity
             ]);
         }
 
+
+        //If the user asked something other than the boundries specified redirect them to a logical AI we have inside our python (we have ollama)
         $AI_Logic = $this->askAI($message);
         return response()->json(['answer' => $AI_Logic]);
     }
 
-    //Functoins the chatBot will use 
+    //private functoins the chatBot will use (they are called in the above lines.) 
     private function isGreeting($message)
     {
         $possibleGreeting = ['hi', 'hello', 'hey', 'good morning', 'good evening', 'good afternoon'];
@@ -87,15 +90,6 @@ class ChatBotController extends Controller
                 return true;
         }
         return false;
-    }
-    private function isHelp($message)
-    {
-        $possibelHelpWords = ['help', 'how can you assist me', 'what can you do', 'what do you do', 'options'];
-        foreach($possibelHelpWords as $h){
-            if (str_contains($message, $h))
-                return true;
-        }
-        return false; 
     }
 
     private function getUniversityMajors($message)
@@ -127,8 +121,8 @@ class ChatBotController extends Controller
 
     private function getMajorUniversities($message)
     {
-        if (str_contains($message, 'compare') || str_contains($message, 'vs') 
-        || str_contains($message, 'difference') || str_contains($message, 'versus')) {
+        if (str_contains($message, 'where can I find') || str_contains($message, 'whare to study') 
+        || str_contains($message, 'is available') || str_contains($message, 'what university provides')) {
             return null;
         }
 
@@ -169,7 +163,8 @@ class ChatBotController extends Controller
                 break;
             }
         }
-        if (!$triggered) return null;
+        if (!$triggered) 
+            return null;
         $majors = Major::all();
         $foundMajor = null;
 
@@ -205,6 +200,34 @@ class ChatBotController extends Controller
         } catch (\Exception $e) {
             return "I found {$foundMajor} in my database but couldn't generate an explanation right now. Try asking 'where can I study {$foundMajor}?' instead!";
         }
+    }
+
+    private function compareMajorWithAI ($message){
+        $trigger = ['difference', 'vs', 'versus', 'different', 'compare'];
+        $isTriggered = false; 
+         
+        foreach ($trigger as $t){
+             if (str_contains($message, $t)) {
+                $isTriggered = true;
+                break;
+            }
+        }
+        if (!$isTriggered)
+            return null; 
+
+       try {
+        $AIresponse = Http::timeout(30)->post('http://localhost:8002/chatbot', [
+            'message' => "A student in Bahrain asked: '{$message}'. 
+            If this is asking to compare two university majors, compare them in under 6 sentences covering what each one is, the core difference, what students learn, and career options.
+            If one or both majors are not available in Bahrain, mention that briefly. If the message is not about comparing university majors, politely say you can only help with university 
+            and major related questions."
+        ]);
+        $data = $AIresponse->json();
+        return $data['answer'] ?? null; 
+        } catch (\Exception $e) {
+            return null; 
+        }
+
     }
 
 
