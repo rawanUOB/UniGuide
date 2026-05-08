@@ -33,7 +33,11 @@ class AIController extends Controller
             'patience' => 'required|numeric',
             'empathy' => 'required|numeric',
             'spatial_thinking' => 'required|numeric',
-            'research_drive' => 'required|numeric'
+            'research_drive' => 'required|numeric',
+            'persuasion' => 'required|numeric',
+            'social_interest' => 'required|numeric',
+            'risk_taking' => 'required|numeric',
+            'aesthetic_sensitivity' => 'required|numeric'
         ]);
 
         // Here we'll use this to call our python API:
@@ -42,7 +46,8 @@ class AIController extends Controller
             'technology_interest', 'leadership', 'analytical_thinking',
             'attention_to_details', 'biology_interest', 'fitness_interest',
             'teamwork', 'stress_tolerance', 'ethics', 'patience', 'empathy', 
-            'spatial_thinking', 'research_drive'
+            'spatial_thinking', 'research_drive', 'persuasion', 'social_interest',
+            'risk_taking', 'aesthetic_sensitivity'
         ]));
 
         $result = $response->json();

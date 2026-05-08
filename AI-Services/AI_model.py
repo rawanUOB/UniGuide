@@ -9,7 +9,8 @@ TRAITS = [
     'Technology_Interest', 'Leadership', 'Analytical_Thinking',
     'Attention_to_Details', 'Biology_Interest', 'Fitness_Interest',
     'Teamwork', 'Stress_Tolerance', 'Ethics', 'Patience',
-    'Empathy', 'Spatial_Thinking', 'Research_Drive' 
+    'Empathy', 'Spatial_Thinking', 'Research_Drive', 'Persuasion', 'Social_Interest', 
+    'Risk_Taking', 'Aesthetic_Sensitivity'
 ]
 
 def load_data():

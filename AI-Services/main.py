@@ -32,7 +32,11 @@ class UserInput(BaseModel):
     patience: float = Field(..., ge=0.0, le=1.0)
     empathy: float = Field(..., ge=0.0, le=1.0)
     spatial_thinking: float = Field(..., ge=0.0, le=1.0)
-    research_drive: float = Field(..., ge=0.0, le=1.0)    
+    research_drive: float = Field(..., ge=0.0, le=1.0)  
+    persuasion: float = Field(..., ge=0.0, le=1.0) 
+    social_interest: float = Field(..., ge=0.0, le=1.0) 
+    risk_taking: float = Field(..., ge=0.0, le=1.0)
+    aesthetic_sensitivity: float = Field(..., ge=0.0, le=1.0)
 
 @app.get("/")
 def health_check():
@@ -48,7 +52,8 @@ def predict(user: UserInput):
             user.attention_to_details, user.biology_interest,
             user.fitness_interest, user.teamwork, user.stress_tolerance,
             user.ethics, user.patience, user.empathy,
-            user.spatial_thinking, user.research_drive            
+            user.spatial_thinking, user.research_drive, user.persuasion,
+            user.social_interest, user.risk_taking, user.aesthetic_sensitivity        
         ]
 
         cosine_score = cosine_recommendation(trait, data)
