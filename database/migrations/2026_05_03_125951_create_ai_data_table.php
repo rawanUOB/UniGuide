@@ -27,7 +27,11 @@ return new class extends Migration
             $table->decimal('Patience',3,2);
             $table->decimal('Empathy',3,2);
             $table->decimal('Spatial_Thinking',3,2);
-            $table->decimal('Research_Drive',3,2);    
+            $table->decimal('Research_Drive',3,2); 
+            $table->decimal('Persuasion',3,2);   
+            $table->decimal('Social_Interest',3,2);
+            $table->decimal('Risk_Taking',3,2);
+            $table->decimal('Aesthetic_Sensitivity',3,2);
             $table->timestamps();
         });
     }

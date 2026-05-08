@@ -272,7 +272,7 @@
         {{-- Q10: Fitness (for sports) --}}
         <div class="card bg-base-100 shadow-sm mb-4">
             <div class="card-body">
-                <p class="font-semibold text-base mb-3">10. How important is physical activity or sports in your life?</p>
+                <p class="font-semibold text-base mb-3">10. How important is physical activity or healthy food in your life?</p>
                 <div class="flex flex-col gap-2">
                     <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
                         <input type="radio" name="fitness_interest" value="0.1" class="radio radio-primary radio-sm" required>
@@ -280,7 +280,7 @@
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
                         <input type="radio" name="fitness_interest" value="0.3" class="radio radio-primary radio-sm">
-                        <span class="text-sm">I exercise occasionally but it's not a priority</span>
+                        <span class="text-sm">I exercise or eat healthy occasionally but it's not a priority</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
                         <input type="radio" name="fitness_interest" value="0.5" class="radio radio-primary radio-sm">
@@ -288,11 +288,11 @@
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
                         <input type="radio" name="fitness_interest" value="0.8" class="radio radio-primary radio-sm">
-                        <span class="text-sm">Sport and fitness are a big part of my life</span>
+                        <span class="text-sm">Sport or healthy food are a big part of my life</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
                         <input type="radio" name="fitness_interest" value="1.0" class="radio radio-primary radio-sm">
-                        <span class="text-sm">I'm seriously dedicated to physical performance or sports</span>
+                        <span class="text-sm">I'm seriously dedicated to physical performance or knowing what to eat</span>
                     </label>
                 </div>
             </div>
@@ -500,6 +500,122 @@
                 </div>
             </div>
         </div>
+
+        {{-- Q18: how much do you like convincing others --}}
+        <div class="card bg-base-100 shadow-sm mb-4">
+            <div class="card-body">
+                <p class="font-semibold text-base mb-3">18. When trying to convince someone of something, what describes you to most?</p>
+                <div class="flex flex-col gap-2">
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="persuasion" value="0.1" class="radio radio-primary radio-sm" required>
+                        <span class="text-sm">I avoid trying to convince people, if they don't want to change their mind its not my problem</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="persuasion" value="0.3" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I make my opinion known, and that's it</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="persuasion" value="0.5" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I explain my reasonings behind my opinion</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="persuasion" value="0.8" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I enjoy debating and going back and forth</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="persuasion" value="1.0" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I naturally persuade people and enjoy the challenge</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        {{-- Q19: how intrested the user in understanding the society --}}
+        <div class="card bg-base-100 shadow-sm mb-4">
+            <div class="card-body">
+                <p class="font-semibold text-base mb-3">19. How interested are you in understanding why societies or people behave the way they do?</p>
+                <div class="flex flex-col gap-2">
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="social_interest" value="0.1" class="radio radio-primary radio-sm" required>
+                        <span class="text-sm">Not intrested at all</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="social_interest" value="0.3" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I sometimes get slightly curious</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="social_interest" value="0.5" class="radio radio-primary radio-sm">
+                        <span class="text-sm">It's intresting when it comes up</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="social_interest" value="0.8" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I enjoy reading about social issues</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="social_interest" value="1.0" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I'm deeply fascinated by human behaviour and societal patterns</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        {{-- Q20: are they able to make fast decision--}}
+        <div class="card bg-base-100 shadow-sm mb-4">
+            <div class="card-body">
+                <p class="font-semibold text-base mb-3">20. When making an important decision with uncertain outcomes, how do you feel?</p>
+                <div class="flex flex-col gap-2">
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="risk_taking" value="0.1" class="radio radio-primary radio-sm" required>
+                        <span class="text-sm">I avoid  risky decisions at all costs</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="risk_taking" value="0.3" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I prefer safe options but can take small risks</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="risk_taking" value="0.5" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I weigh the risk carefully before deciding</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="risk_taking" value="0.8" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I'm comfortable taking calculated risks</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="risk_taking" value="1.0" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I thrive on risks, uncertainty excites me</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        {{-- Q21: how Aesthetic driven are they --}}
+        <div class="card bg-base-100 shadow-sm mb-4">
+            <div class="card-body">
+                <p class="font-semibold text-base mb-3">21. How much do visual beauty, design, or aesthetics matter to you in your daily life?</p>
+                <div class="flex flex-col gap-2">
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="aesthetic_sensitivity" value="0.1" class="radio radio-primary radio-sm" required>
+                        <span class="text-sm">I don't really notice or care about it</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="aesthetic_sensitivity" value="0.3" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I appreciate good aesthetics when I see it but don't seek it out</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="aesthetic_sensitivity" value="0.5" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I notice when things look good or bad</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="aesthetic_sensitivity" value="0.8" class="radio radio-primary radio-sm">
+                        <span class="text-sm">I'm drawn to beautiful things and pay attention to it </span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-base-200 transition">
+                        <input type="radio" name="aesthetic_sensitivity" value="1.0" class="radio radio-primary radio-sm">
+                        <span class="text-sm">Aesthetics are deeply important to me, I always notice visual presentation</span>
+                    </label>
+                </div>
+            </div>
+        </div>    
 
         <div class="text-center mt-8">
             <button type="submit" class="btn btn-primary btn-wide btn-lg">
