@@ -91,7 +91,13 @@
                                 class="checkbox checkbox-error checkbox-sm">
                             <span class="text-sm font-medium">{{ $match['Major'] }}</span>
                         </label>
-                        @endforeach
+                        @endforeach 
+                        <label class="flex items-center gap-2 cursor-pointer border border-base-300 rounded-lg px-4 py-2 hover:bg-red-50 hover:border-red-300 transition">
+                            <input type="checkbox" name="disagreement_majors[]"
+                                value="{{ $result['decision_tree_suggestion'] }}"
+                                class="checkbox checkbox-error checkbox-sm">
+                            <span class="text-sm font-medium">{{ $result['decision_tree_suggestion'] }}</span>
+                        </label>
                     </div>
 
                     <button type="button" onclick="submitFeedback()" class="btn btn-primary mt-2">
@@ -104,7 +110,7 @@
         {{-- Thank you message --}}
         <div id="thankYouMsg" class="hidden card bg-success text-success-content shadow mt-6 mb-6">
             <div class="card-body text-center">
-                <h3 class="text-xl font-bold">Thank you for your feedback! 🎉</h3>
+                <h3 class="text-xl font-bold">Thank you for your feedback! </h3>
                 <p class="text-sm opacity-80">Your response helps improve our AI for future students.</p>
             </div>
         </div>

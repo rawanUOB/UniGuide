@@ -14,12 +14,14 @@ def retrain_with_real_data():
                attention_to_details, biology_interest, fitness_interest,
                teamwork, stress_tolerance, ethics, patience, empathy,
                spatial_thinking, research_drive, persuasion, social_interest,
-               risk_taking, aesthetic_sensitivity, chosen_major, 'disagreement_majors'
+               risk_taking, aesthetic_sensitivity, chosen_major, disagreement_majors
         FROM student_responses
         WHERE chosen_major IS NOT NULL AND chosen_major != 'none'
     """
     
     real_data = pd.read_sql(query, conn)
+    name_map = {t.lower(): t for t in TRAITS}
+    real_data = real_data.rename(columns=name_map)
     conn.close()
     
     synthetic = pd.read_csv('majors.csv')
