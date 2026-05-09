@@ -1,59 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# UniGuide
 
-## About Laravel
+## Starting Date: 1/3/2026
+## Completion Date : 11/5/2026
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### By:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Intisar Hussain - [LinkedIn](https://www.linkedin.com/in/intisar-abdulla67?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYvGJL%2Bu1RjmH4XayFTfMnw%3D%3D) | [Github](https://github.com/intisarHJM)
+* Sara Bader
+* Rawan Aqeel
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### ***Description***
+#### UniGuide is a comprehensive web platform designed to simplify the process of university and scholarship discovery for students in Bahrain. The project features a robust system for filtering scholarships based on GPA requirements, university discovery, and an AI-driven chatbot to assist with site navigation. By integrating a Laravel-based full-stack architecture with Python/FastAPI for machine learning logic, UniGuide provides a seamless and intelligent experience for students aiming to advance their academic careers.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+***
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### ***Technologies Used***
+* Backend: Laravel (PHP 8.4)
+* Frontend: Blade Templating Engine, HTML5, CSS3, JavaScript
+* Database: SQLite (Development) / PostgreSQL (Production)
+* Integration: Python & FastAPI (for ML logic/Chatbot)
+* Deployment: Railway
+* Hardware: Developed on Lenovo ThinkPad E15 i7
 
-## Contributing
+***
+### ***Key Features***
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- ***Scholarship Filtering:*** A dynamic search tool that allows students to enter their GPA (out of 100) to find eligible scholarship opportunities.
+- ***University Discovery:*** A centralized database for university information and scholarship migrations.
+- ***AI Chatbot Integration:*** A Python-based intelligent assistant to help users navigate the platform and find relevant academic content.
+- ***Senior Project Scale:*** A full-stack immersive project developed over three months to contribute to the Bahraini tech industry.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+***
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### ***Getting Started***
 
-## License
+1. The homepage displays all universities in Bahrain. You can use the search bar to find a specific university.
+2. Click on any university to view its colleges. From there, you can select a specific college to see the majors it offers.
+3.You can navigate to other pages using the Navbar located in the header.
+4. The Scholarships page lists available opportunities in Bahrain that you can apply for. You can filter these based on your GPA; currently, the system supports GPA scales out of 100 for high school graduates.
+5. The Academic Test page features an evaluation to assess your personality and suggest the best majors for you to pursue.
+6. In the bottom-right corner, you will find a floating chatbot button. Click it to ask the chatbot for help with site navigation or to simplify your experience.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+***
+
+### ***Future Updates***
+- Global Reach: Including universities from abroad.
+- Expanded Filtering: Adding GPA filtering options for Master’s degree scholarships.
+- User Accounts: Adding sign-in and sign-up pages to allow users to save their progress and preferences.
+- Mentorship Directory: Adding a contact directory for university student representatives, enabling graduates to connect with them directly for guidance and support.
+
+
+
+***
+
+### ***Credits***
+- Laravel Official Documentation: Much of the project's logic and structure was developed through self-study of the official Laravel website and documentation.
+
+***
