@@ -22,3 +22,10 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+.env
+/database/*.sqlite
+/database/*.sqlite-journal
+AI-Services/model.pkl
+AI-Services/__pycache__/
+AI-Services/*.pkl
+AI-Services/.venv/
