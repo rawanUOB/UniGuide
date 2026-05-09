@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
+use App\Models\student_responses;
 
 class AIController extends Controller
 {
@@ -51,8 +51,46 @@ class AIController extends Controller
         ]));
 
         $result = $response->json();
+        \App\Models\student_responses::create([
+        'math' => $request->math,
+        'creativity' => $request->creativity,
+        'problem_solving' => $request->problem_solving,
+        'communication_skills' => $request->communication_skills,
+        'technology_interest' => $request->technology_interest,
+        'leadership' => $request->leadership,
+        'analytical_thinking' => $request->analytical_thinking,
+        'attention_to_details' => $request->attention_to_details,
+        'biology_interest' => $request->biology_interest,
+        'fitness_interest' => $request->fitness_interest,
+        'teamwork' => $request->teamwork,
+        'stress_tolerance' => $request->stress_tolerance,
+        'ethics' => $request->ethics,
+        'patience' => $request->patience,
+        'empathy' => $request->empathy,
+        'spatial_thinking' => $request->spatial_thinking,
+        'research_drive' => $request->research_drive,
+        'persuasion' => $request->persuasion,
+        'social_interest' => $request->social_interest,
+        'risk_taking' => $request->risk_taking,
+        'aesthetic_sensitivity' => $request->aesthetic_sensitivity,
+        'recommended_major' => $result['final_recommendation'],
+    ]);
 
         return view('results', compact('result'));
        
+    }
+
+    public function feedback(Request $request)
+    {
+        $latest = student_responses::latest()->first();
+        if ($latest) {
+            $chosenMajors = $request->chosen_majors ?? [];
+            $disagreementMajors = $request->disagreement_majors ?? [];
+            $latest->update([
+                'chosen_major' => implode(', ', $chosenMajors),
+                'disagreement_majors' => implode(', ', $disagreementMajors),
+            ]);
+        }
+        return response()->json(['success' => true]);
     }
 }

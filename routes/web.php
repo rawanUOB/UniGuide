@@ -32,4 +32,5 @@ Route::post('/chatbot', [ChatBotController::class, 'askDB']);
 Route::get('/academic-tests', [AcademicController::class, 'index'])->name('academic-tests');
 Route::post('/predict', [AIController::class, 'predict'])->name('ai.predict');
 Route::get('/questionnaire', [AIController::class, 'show'])->name('ai.questionnaire');
+Route::post('/feedback', [AIController::class, 'feedback'])->name('ai.feedback');
 

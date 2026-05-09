@@ -51,6 +51,89 @@
         </div>
         @endif
 
+        {{-- To help AI learn more --}}
+        <div id="feedbackCard" class="card bg-base-100 shadow mt-6 mb-6">
+            <div class="card-body text-center">
+                <p class="font-semibold text-lg">Does this recommendation feel right to you?</p>
+                <p class="text-sm text-base-content/60 mb-4">
+                    Select all majors that feel like a good fit for you.
+                </p>
+
+                <form id="feedbackForm" >
+                    @csrf
+
+                    {{-- What fits --}}
+                    <div class="flex gap-3 justify-center flex-wrap mb-4">
+                        @foreach($result['top_3'] as $match)
+                        <label class="flex items-center gap-2 cursor-pointer border border-base-300 rounded-lg px-4 py-2 hover:bg-base-200 transition">
+                            <input type="checkbox" name="chosen_majors[]"
+                                value="{{ $match['Major'] }}"
+                                class="checkbox checkbox-primary checkbox-sm">
+                            <span class="text-sm font-medium">{{ $match['Major'] }}</span>
+                        </label>
+                        @endforeach
+                        <label class="flex items-center gap-2 cursor-pointer border border-base-300 rounded-lg px-4 py-2 hover:bg-base-200 transition">
+                            <input type="checkbox" name="chosen_majors[]"
+                                value="none"
+                                class="checkbox checkbox-primary checkbox-sm">
+                            <span class="text-sm font-medium">None of these</span>
+                        </label>
+                    </div>
+
+                    {{-- What doesn't fit --}}
+                    <div class="divider">What doesn't feel right? (optional)</div>
+                    <p class="text-sm text-base-content/60 mb-4">Select any of the recommended majors that don't suit you.</p>
+                    <div class="flex gap-3 justify-center flex-wrap mb-6">
+                        @foreach($result['top_3'] as $match)
+                        <label class="flex items-center gap-2 cursor-pointer border border-base-300 rounded-lg px-4 py-2 hover:bg-red-50 hover:border-red-300 transition">
+                            <input type="checkbox" name="disagreement_majors[]"
+                                value="{{ $match['Major'] }}"
+                                class="checkbox checkbox-error checkbox-sm">
+                            <span class="text-sm font-medium">{{ $match['Major'] }}</span>
+                        </label>
+                        @endforeach
+                    </div>
+
+                    <button type="button" onclick="submitFeedback()" class="btn btn-primary mt-2">
+                        Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        {{-- Thank you message --}}
+        <div id="thankYouMsg" class="hidden card bg-success text-success-content shadow mt-6 mb-6">
+            <div class="card-body text-center">
+                <h3 class="text-xl font-bold">Thank you for your feedback! 🎉</h3>
+                <p class="text-sm opacity-80">Your response helps improve our AI for future students.</p>
+            </div>
+        </div>
+
+        <script>
+        function submitFeedback() {
+            let form = document.getElementById('feedbackForm');
+            let formData = new FormData(form);
+            
+            formData.append('_token', '{{ csrf_token() }}');
+
+            fetch('/feedback', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('feedbackCard').classList.add('hidden');
+                    document.getElementById('thankYouMsg').classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            });
+        }
+        </script>
+
         <div class="flex gap-4 justify-center">
             <a href="{{ route('ai.questionnaire') }}" class="btn btn-outline">
                 Retake the Quiz
