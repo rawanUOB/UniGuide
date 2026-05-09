@@ -8,8 +8,8 @@
 ### By:
 
 * Intisar Hussain - [LinkedIn](https://www.linkedin.com/in/intisar-abdulla67?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYvGJL%2Bu1RjmH4XayFTfMnw%3D%3D) | [Github](https://github.com/intisarHJM)
-* Sara Bader
-* Rawan Aqeel
+* Sara Bader - [LinkedIn]() | [Github](https://github.com/Sarabader11)
+* Rawan Aqeel - [LinkedIn](https://www.linkedin.com/in/rawan-almahoozi-b0a82a364/) | [Github](https://github.com/rawanUOB)
 
 
 
