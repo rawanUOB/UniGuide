@@ -12,7 +12,11 @@ class CollegesSeeder extends Seeder
      */
     public function run(): void
     {
+
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         \App\Models\College::truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         $polyticnic = \App\Models\University::where('name', 'Bahrain Polytechnic')->first();
         $polyticnic ->colleges()->createMany ([
             ['name' => 'School of Business' , 'created_at' => now(),'updated_at' => now()],

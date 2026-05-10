@@ -13,7 +13,10 @@ class ScholarshipsSeeder extends Seeder
      */
     public function run(): void
     {
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Scholarship::truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         Scholarship::create([
         'name' => 'Ministry of Education Scholarships',
         'min_gpa' => 90,
