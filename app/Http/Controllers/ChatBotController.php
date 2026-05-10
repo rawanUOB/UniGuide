@@ -121,36 +121,79 @@ class ChatBotController extends Controller
 
     private function getMajorUniversities($message)
     {
-        if (str_contains($message, 'where can I find') || str_contains($message, 'whare to study') 
-        || str_contains($message, 'is available') || str_contains($message, 'what university provides')) {
-            return null;
-        }
-
-        $majors = Major::all(); 
-        foreach ($majors as $major){
-            $majorName = strtolower($major->name);
-            $onlyName = strtolower(str_replace(
-                ['Bachelor of ', 'Science in ', 'Bachelor of Science in  ', 'Doctor of' ],'',$majorName
-            ));
-
-            $keywords = array_merge([$onlyName],array_filter(explode(' ', $onlyName), fn($k) => strlen($k) > 3));
-
-            foreach ($keywords as $keyword){
-                similar_text($keyword, $message, $percent); 
-                if (str_contains($message, $keyword) || $percent >70){
-                    $universities = University::whereHas('colleges.majors', function($query) use($major){
-                        $query->where('id', $major->id); 
-                    })->pluck('name'); 
-                    if($universities->isEmpty())
-                        return "Sorry, I couldn't find universities offering {$major->name} in my database :( ";
-                    
-                    return "{$major->name} is offeref at: \n• " .$universities->implode("\n•");
-                } 
-
+        $majors = Major::all();
+        $allResults = collect();
+        $lines = collect(); //will be used to structure the respond 
+        
+        //so that chatbot maps diffrent names with same major
+        $synonyms = [
+            'doctor' => 'medicine',
+            'nurse' => 'nursing',
+            'lawyer' => 'law',
+            'engineer' => 'engineering',
+            'programmer' => 'computer science',
+            'developer' => 'software',
+            'accountant' => 'accounting',
+            'architect' => 'architecture',
+            'data analysts' => 'data analysis',
+        ];
+        
+        // Replace synonyms in message
+        $searchMessage = $message;
+        foreach ($synonyms as $word => $replacement) {
+            if (str_contains($searchMessage, $word)) {
+                $searchMessage = str_replace($word, $replacement, $searchMessage);
             }
         }
-        return null; 
+
+        foreach ($majors as $major) {
+            $majorName = strtolower($major->name);
+            $onlyName = strtolower(str_replace(
+                ['Bachelor of ', 'Science in ', 'Bachelor of Science in ', 'Doctor of '], '', $majorName
+            ));
+
+            if (str_contains($searchMessage, $onlyName)) {
+                $allResults->push($major);
+                continue;
+            }
+
+            $keywords = array_filter(explode(' ', $onlyName), fn($k) => strlen($k) > 3);
+            foreach ($keywords as $keyword) {
+                similar_text($keyword, $searchMessage, $percent);
+                if (str_contains($searchMessage, $keyword) || $percent > 70) {
+                    $allResults->push($major);
+                    break;
+                }
+            }
+        }
+
+        if ($allResults->isEmpty()) return null;
+
+        foreach ($allResults as $major) {
+            $universities = University::whereHas('colleges.majors', function($query) use($major) {
+                $query->where('id', $major->id);
+            })->pluck('name');
+
+            if ($universities->isEmpty()) continue;
+
+            foreach ($universities as $university) {
+                $lines->push("• {$university} ({$major->name})");
+            }
+        }
+
+        if ($lines->isEmpty()) {
+            return "I couldn't find universities offering that in my database yet.";
+        }
+
+        if ($allResults->count() === 1) {
+            return "{$allResults->first()->name} is offered at:\n" . $lines->implode("\n");
+        }
+
+        return "This major is offered at:\n" . $lines->implode("\n");
     }
+
+
+    
 
 
     private function explainMajorWithAI($message)
