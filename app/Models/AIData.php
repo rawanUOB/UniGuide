@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AIData extends Model
 {
- protected $table = 'ai_data';
+ protected $table = 'AI_data';
     protected $fillable = [
             'Major',
             'Math',
