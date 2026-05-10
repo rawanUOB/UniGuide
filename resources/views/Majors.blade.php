@@ -27,10 +27,15 @@
 
         <div class="bg-white p-6 rounded-xl shadow mb-4">
             <h2 class="text-2xl font-semibold mb-2">Study Plan</h2>
-            <div class ="grid md:grid-cols-2 gap-4" >
-                @foreach($major->Study_Plan as $year => $plan)
-                    <div class = " rounded-lg p-4">
-                        <h3 class="font-bold text-blue-700"> {{ $year }}</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                @php
+                    $studyPlan = $major->Study_Plan;
+                    // Sort by key naturally (Year 1, Year 2, Year 3... and so on 
+                    uksort($studyPlan, 'strnatcasecmp');
+                @endphp
+                @foreach($studyPlan as $year => $plan)
+                    <div class="rounded-lg p-4">
+                        <h3 class="font-bold text-blue-700">{{ $year }}</h3>
                         <p class="text-gray-600 text-sm">{{ $plan }}</p>
                     </div>
                 @endforeach
