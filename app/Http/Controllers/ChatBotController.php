@@ -130,7 +130,7 @@ class ChatBotController extends Controller
         foreach ($majors as $major){
             $majorName = strtolower($major->name);
             $onlyName = strtolower(str_replace(
-                ['Bachelor of ', 'Science in ', 'Bachelor of Science in  ' ],'',$majorName
+                ['Bachelor of ', 'Science in ', 'Bachelor of Science in  ', 'Doctor of' ],'',$majorName
             ));
 
             $keywords = array_merge([$onlyName],array_filter(explode(' ', $onlyName), fn($k) => strlen($k) > 3));
