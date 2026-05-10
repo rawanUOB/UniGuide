@@ -1,12 +1,20 @@
+import os
 import pandas as pd
 import pickle
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from AI_model import TRAITS
-import sqlite3
+import mysql
+import mysql.connector as mysql_connector
 
 def retrain_with_real_data():
-    conn = sqlite3.connect('../database/database.sqlite')
+    conn = mysql_connector.connect(
+        host='viaduct.proxy.rlwy.net',
+        port=17159,
+        database='railway',
+        user='root',
+        password='XuSdoqJesaHDFBuAkluAmKOBdGaOYIwZ'
+    )
     
     query = """
         SELECT math, creativity, problem_solving, communication_skills,
@@ -45,7 +53,10 @@ def retrain_with_real_data():
     model = DecisionTreeClassifier(max_depth=10, random_state=42)
     model.fit(X_combined, y_combined)
     
-    with open('dt_model.pkl', 'wb') as f:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(base_dir, 'model.pkl')
+
+    with open(model_path, 'wb') as f:
         pickle.dump(model, f)
     
     print(f"Model retrained on {len(X_real)} real responses + {len(X_synthetic)} synthetic samples")

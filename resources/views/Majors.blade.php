@@ -1,6 +1,6 @@
 <x-layout>
     <div class="max-w-5xl mx-auto p-6">
-        <h1 class="text-3xl font-bold text-blue-900 mb-6 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center">
             {{ $major->name }}
         </h1>
         @if($major->video_link)
