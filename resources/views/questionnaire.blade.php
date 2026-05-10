@@ -1,9 +1,9 @@
-<div class="max-w-5xl mx-auto py-10">
+<div class="max-w-2xl mx-auto px-4 py-10">
 
     {{-- Header --}}
     <div class="text-center mb-10">
         <h1 class="text-4xl font-bold mb-3">Find Your Perfect Major</h1>
-        <p class="text-base-content/60">Answer honestly, there are no right or wrong answers.</p>
+        <p class="text-3xl md:text-4xl font-bold mb-3">Answer honestly, there are no right or wrong answers.</p>
     </div>
 
     <form method="POST" action="{{ route('ai.predict') }}">

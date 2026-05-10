@@ -14,7 +14,7 @@
 
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
 <nav class="navbar bg-base-100 sticky top-0 z-50">
-<div class="navbar-start">
+<div class="navbar-center hidden lg:flex">
 <a href="/" class="btn btn-ghost text-xl">UniGuide</a>
 <div class="flex space-x-4">
         <a href="{{ route('home') }}"  class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md {{ request()->routeIs('home') ? 'underline decoration-2 underline-offset-4' : '' }}" >Home</a>
@@ -22,16 +22,22 @@
         <a href="{{ route('academic-tests') }}" class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md {{ request()->routeIs('academic-tests') ? 'underline decoration-2 underline-offset-4' : '' }}">Academic test</a>
     </div>
 </div>
-<!--<nav class = "bg-white shadow-md">
-<div class="navbar-center hidden lg:flex">
-    <div class="flex space-x-4">
-        <a class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md">Home</a>
-        <a class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md ">Scholerships</a>
-        <a class="btn btn-ghost px-3 py-2 font-medium text-gray-700 hover:text-gray-900 shadow-md">Academic test</a>
-    </div>
-</div>
-</nav> -->
 
+{{-- For mobile interface --}}
+<div class="navbar-end lg:hidden">
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+                <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'underline decoration-2 underline-offset-4' : '' }}">Home</a></li>
+                <li><a href="{{ route('scholarships') }}" class="{{ request()->routeIs('scholarships') ? 'underline decoration-2 underline-offset-4' : '' }}">Scholarships</a></li>
+                <li><a href="{{ route('academic-tests') }}" class="{{ request()->routeIs('academic-tests') ? 'underline decoration-2 underline-offset-4' : '' }}">Academic Test</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 <main class="flex-1 container mx-auto px-4 py-8">
     {{ $slot }}
@@ -48,7 +54,7 @@
     <img src="{{ asset('images/chatbot.jpg') }}" alt="Chatbot Icon" class="w-6 h-6">   
 </div>
 
-<div id="box" class="hidden fixed bottom-20 right-6 w-96 bg-white shadow-xl rounded-xl flex flex-col mb-2">
+<div id="box" class="hidden fixed bottom-20 right-2 left-2 md:left-auto md:w-96 bg-white shadow-xl rounded-xl flex flex-col mb-2">
     <div class="bg-green-600 text-white p-3 rounded-t-xl">
         UniGuide Chatbot
     </div>

@@ -22,7 +22,7 @@
         <div class="flex flex-col gap-4 mb-10">
             @foreach($result['top_3'] as $index => $match)
             <div class="card bg-base-100 shadow-md">
-                <div class="card-body flex flex-row items-center justify-between py-4">
+                <div class="card-body flex flex-col sm:flex-row items-start sm:items-center justify-between py-4 gap-2">
                     <div class="flex items-center gap-4">
                         <div class="text-2xl font-black text-primary opacity-40">#{{ $index + 1 }}</div>
                         <div>
