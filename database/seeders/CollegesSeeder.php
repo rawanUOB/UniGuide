@@ -12,7 +12,7 @@ class CollegesSeeder extends Seeder
      */
     public function run(): void
     {
-
+        \App\Models\College::truncate();
         $polyticnic = \App\Models\University::where('name', 'Bahrain Polytechnic')->first();
         $polyticnic ->colleges()->createMany ([
             ['name' => 'School of Business' , 'created_at' => now(),'updated_at' => now()],
