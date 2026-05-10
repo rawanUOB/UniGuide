@@ -8,8 +8,6 @@
             <video class="w-full h-64 rounded-xl" controls>
                  <source src="{{ asset($major->video_link) }}" type="video/mp4">
             </video>
-            
-            </div>
 
         @else
             <div class="bg-gray-100 p-6 rounded-xl text-center text-gray-500 mb-6 border-2 border-dashed border-gray-300">
