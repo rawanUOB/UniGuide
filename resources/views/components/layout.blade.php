@@ -32,10 +32,6 @@
 </div>
 </nav> -->
 
-<div class="navbar-end gap-2">
-<a href="#" class="btn btn-ghost btn-sm">Sign In</a>
-<a href="#" class="btn btn-primary btn-sm">Sign Up</a>
-</div>
 </nav>
 <main class="flex-1 container mx-auto px-4 py-8">
     {{ $slot }}
