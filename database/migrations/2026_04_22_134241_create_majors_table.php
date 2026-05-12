@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('college_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->string('duration')->nullable(); 
             $table->string('Study_Plan')->nullable();
             $table->string('Teaching_Methods')->nullable();

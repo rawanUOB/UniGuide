@@ -50,8 +50,8 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Programming ',
-                'description' => 'Programming in Bahrain Polytechnic is focused on software development, programming languages, application development 
-            and problem solving. This program is based on hands-on project based learning.',
+                'description' => 'Programming at Bahrain Polytechnic is focused on preparing students for careers in software development and modern computing technologies through practical and project-based learning. Students develop strong foundations in programming languages, application development, software design, and problem solving. The program emphasizes hands-on 
+                experience, teamwork, critical thinking, and real-world industry projects to help students build practical technical skills required in the software industry.',
                 'duration' => '4 years',
                 'Study_Plan' => [
                     'Year 1' => 'Focuses on building an IT foundation skills in computer systems, programming, databases, networks, operating systems and 
@@ -81,7 +81,8 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Networking',
-                'description' => 'The major focuses on network design, wireless systems and security of network systems',
+                'description' => 'Networking at Bahrain Polytechnic is focused on preparing students to design, manage, and secure modern computer networks and communication systems. Students study network infrastructure, wireless technologies, routing and switching, cybersecurity fundamentals, and system administration. The program emphasizes practical laboratory experience,
+                 troubleshooting skills, and real-world networking environments to prepare graduates for careers in network engineering and IT infrastructure management.',
                 'duration' => '4 years',
                 'Study_Plan' => [
                     'Year 1' => 'Focuses on basics of networking, operating systems, database, programing and mathematics.',
@@ -107,7 +108,8 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Science in Cloud Computing and Information Systems',
-                'description' => 'Cloud computing focuses on cloud architecture, enterprise systems, DevOps and cloud based solutions.',
+                'description' => 'Cloud Computing and Information Systems at Bahrain Polytechnic is focused on developing students knowledge in cloud technologies, enterprise systems, and modern IT solutions. Students learn cloud architecture, DevOps practices, database systems, virtualization, and information systems management. The program emphasizes practical 
+                implementation, problem solving, and industry-based projects to prepare graduates for careers in cloud computing, systems administration, and enterprise technology environments.',
                 'duration' => '4 years',
                 'Study_Plan' => [
                     'Year 1' => 'Focuses on developing a strong IT fundamentals for the students.',
@@ -135,7 +137,8 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Science in Data Analytics',
-                'description' => 'Data Analytics focuses on data science and extracting and understanding insights from datasets',
+                'description' => 'Data Analytics at Bahrain Polytechnic is focused on preparing students to analyze, interpret, and manage data to support decision-making and business intelligence. Students gain knowledge in data science, statistical analysis, data visualization, machine learning foundations, and database technologies. The program emphasizes analytical 
+                thinking, practical data handling, and real-world datasets to help students develop skills required for modern data-driven industries.',
                 'duration' => '4 years',
                 'Study_Plan' => [
                     'Year 1' => 'Building the fundamentals of IT such as programming, databases, networking and mathematics.',
@@ -1077,6 +1080,150 @@ class MajorSeeder extends Seeder
         foreach ($majors as $major) {
             $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
+
+        $AaFS = $GU->colleges()->where('name', 'College of Administrative & Financial Science')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor in Accounting & Finance',
+            ],
+            [
+                'name' => 'Bachelor in Human Resources Management',
+            ]
+        ];
+        foreach ($majors as $major) {
+            $AaFS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+        $CaMT = $GU->colleges()->where('name', 'College of Communication & Media Technologies')->firstOrFail(); 
+        $majors = [
+            [
+                'name' => 'Bachelor in Mass Communications',
+            ],
+            [
+                'name' => 'Bachelor in Advertising & Digital Marketing',
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CaMT->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+        $CoL = $GU->colleges()->where('name', 'College of Law')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor in Law',
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+
+        $AUoB = \App\Models\University::where('name', 'American University of Bahrain')->firstOrFail();
+        $CoBM = $AUoB->colleges()->where('name', 'College of Business and Managment')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor of Business Administration in Digital Marketing and Social Media' 
+            ], 
+            [
+                'name' => 'Bachelor of Business Administration in Finance' 
+            ], 
+            [
+               'name' => 'Bachelor of Business Administration in Human Resource Management' 
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoBM->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+        $CoEC = $AUoB->colleges()->where('name','College of Engineering and Computing')->firstOrFail(); 
+        $majors= [
+            [
+                'name' => 'Bachelor of Science in Computer Engineering'
+            ],
+            [
+                'name' => 'Bachelor of Science in Computer Science'
+            ],
+            [
+                'name' => 'Bachelor of Science in Cybersecurity'
+            ],
+            [
+                'name' => 'Bachelor of Science in Civil Engineering'
+            ],
+            [
+                'name' => 'Bachelor of Science in Data Science & AI'
+            ],
+            [
+                'name' => 'Bachelor of Science in Mechanical Engineering'
+            ], 
+            [
+                'name' => 'Bachelor of Science in Industrial Engineering'
+            ],
+            [
+                'name' => 'Bachelor of Science in Software Engineering'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoEC->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+        $CoMD = $AUoB->colleges()->where('name','College of Media and Design')->firstOrFail(); 
+        $majors = [
+            [
+                'name' => 'Bachelor of Arts in Multimedia Design'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoMD->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+
+
+        $UTB = \App\Models\University::where('name', 'University of Technology')->firstOrFail();
+        $CoCS = $UTB->colleges()->where('name','College of Computer Studies')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor of Science in Information Technology'
+            ],
+            [
+                'name' => 'Bachelor of Science in Computer Science'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoCS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+        $CoAFS = $UTB->colleges()->where('name','College of Administrative & Financial Science')->firstOrFail(); 
+        $majors=[
+            [
+                'name' => 'Bachelor of Science in Accounting and Finance'
+            ],
+            [
+                'name' => 'Bachelor of Science in Business Informatics'
+            ],
+            [
+                'name' => 'Bachelor of Science in International Business'
+            ],
+        ];
+        foreach ($majors as $major) {
+            $CoAFS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
+        $CoE = $UTB->colleges()->where('name','College of Engineering')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor of Science in Environmental Engineering'
+            ],
+            [
+                'name' => 'Bachelor of Science in Informatics Engineering'
+            ],
+            [
+                'name' => 'Bachelor of Science in Mechatronics Engineering'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
+        };
+
 
         $AGU = \App\Models\University::where('name', 'Arabian Gulf University')->firstOrFail();
         $CMHS = $AGU->colleges()->where('name', 'College of Medicine & Health Sciences')->firstOrFail();
@@ -2874,5 +3021,418 @@ class MajorSeeder extends Seeder
         foreach ($majors as $major) {
             $Engineering->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
+
+
+        $KU = \App\Models\University::where('name', 'Kingdom University')->firstOrFail();
+        $CoED = $KU->colleges()->where('name', 'College of Engineering and Design')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor in Architectural Engineering'
+            ],
+            [
+                'name' => 'Bachelor in Interior Design'
+            ],
+            [
+                'name' => 'Bachelor in Civil and Environmental Engineering'
+            ]
+
+        ];
+        foreach ($majors as $major) {
+            $CoED->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoBA = $KU->colleges()->where('name','College of Business Administration')->firstOrFail();
+        $majors = [
+            [
+               'name' => 'Bachelor in Business Management' 
+            ],
+            [
+                'name' => 'Bachelor in Finance & Accounting'
+            ],
+            [
+                'name' => 'Bachelor in Finance & Banking'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoBA->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoL = $KU->colleges()->where('name','College of Law')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor of Law'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoIT =$KU->colleges()->where('name', 'College of Information Technology')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'Bachelor in Computer Science'
+            ]
+
+        ];
+        foreach ($majors as $major) {
+            $CoIT->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+
+        $BIBF = \App\Models\University::where('name', 'Bahrain Institute of Banking and Finance')->firstOrFail();
+        $BFT = $BIBF->colleges()->where('name', 'BSc in Banking with Financial Technology')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'BSc in Banking with Financial Technology'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $BFT->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $BF = $BIBF->colleges()->where('name', 'BSc in Banking & Finance')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'BSc in Banking & Finance'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $BF->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $BAF = $BIBF->colleges()->where('name', 'BSc in Accounting & Finance')->firstOrFail();
+        $majors= [
+            [
+                'name' => 'BSc in Accounting & Finance'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $BAF->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $BEM = $BIBF->colleges()->where('name','BSc Economics & Management')->firstOrFail(); 
+        $majors = [
+            [
+                'name' => 'BSc Economics & Management'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $BEM->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $DSBM = $BIBF->colleges()->where('name', 'BSc Data Science and Business Analytics')->firstOrFail(); 
+        $majors = [
+            [
+                'name' => 'BSc Data Science and Business Analytics'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $DSBM->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+
+        $AOU = \App\Models\University::where('name', 'Arab Open University')->firstOrFail();
+        $FoBS = $AOU->colleges()->where('name', 'Faculty of Business Studies')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'Bachelor of Business Studies'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $FoBS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $FoCS = $AOU->colleges()->where('name', 'Faculty of Computer Studies')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'Bachelor of Science in Information Technology and Computing'
+            ],
+            [
+                'name' => 'Bachelor of Science in Cybersecurity'
+            ],
+            [
+                'name' => 'Bachelor of Science in Artificial Intelligence'
+            ], 
+            [
+                'name' => 'Bachelor of Science in Data Science'
+            ], 
+            [
+                'name' => 'Bachelor of Science in Graphic and Multimedia Design/Technology'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $FoCS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $FoLS = $AOU->colleges()->where('name','Faculty of Language Studies')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'Bachelor in English Language and Literature'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $FoLS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+
+        $BUB = \App\Models\University::where('name', 'British University of Bahrain')->firstOrFail();
+        $CoB = $BUB->colleges()->where('name', 'College of Business')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor in Accounting and Finance'
+            ],
+            [
+                'name' => 'Bachelor in Business Management'
+            ],
+            [
+                'name' => 'Bachelor in Business Management with Marketing'
+            ],
+            [
+                'name' => 'Bachelor in Law'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoB->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoE = $BUB->colleges()->where('name','College of Engineering and Built Environment')->firstOrFail();
+        $majors = [
+            [
+                'name' => 'Bachelor in Civil Engineering'
+            ],
+            [
+                'name' => 'Bachelor in Architecture'
+            ],
+            [
+                'name' => 'Bachelor in Interior Design'
+            ],
+            [
+                'name' => 'Bachelor in Construcyion Project Management'
+            ],
+            [
+                'name' => 'Bachelor in Quantity Surveying'
+            ],
+            [
+                'name' => 'Bachelor in Software Engineering'
+            ],
+            [
+                'name' => 'Bachelor in Computer Science with Cybersecurity'
+            ],
+            [
+                'name' => 'Bachelor in Computer Science'
+            ]
+        ];
+        foreach ($majors as $major) {
+            $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoAS = $BUB->colleges()->where('name', 'College of Information and Communication Technology')->firstOrFail();
+        $majors =[
+            [
+                'name' => 'Bachelor in Pstchology' 
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoAS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+
+
+        $UoB = \App\Models\University::where('name', 'University of Bahrain')->firstOrFail();
+        $CoA = $UoB->colleges()->where('name', 'College of Arts')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor in Arabic Language and Literature'
+            ],
+            [
+                'name' => 'Bachelor in Islamic Studies'
+            ],
+            [
+                'name' => 'Bachelor in Mass Communication'
+            ], 
+            [
+                'name' => 'Bachelor in Tourism'
+            ],
+            [
+                'name' => 'Bachelor in Arts and Design'
+            ], 
+            [
+                'name' => 'Bachelor in English Language and Literature'
+            ],
+            [
+                'name' => 'Bachelor in History'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoA->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoBA = $UoB->colleges()->where('name', 'College of Business Administration')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor Business Management'
+            ],
+            [
+                'name' => 'Bachelor in Marketing'
+            ], 
+            [
+                'name' => 'Bachelor in Entrepreneurship'
+            ], 
+            [
+                'name' => 'Bachelor in Islamic Banking & Finance'
+            ], 
+            [
+                'name' => 'Bachelor in Accounting'
+            ],
+            [
+                'name' => 'Bachelor in Banking & Finance'
+            ],
+            [
+                'name' => 'Bachelor in International Business And Economics'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoBA->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoE = $UoB->colleges()->where('name', 'College of Engineering')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor in Mechanical Engineering'
+            ], 
+            [
+                'name' => 'Bachelor in Civil Engineering'
+            ],
+            [
+                'name' => 'Bachelor of Architecture'
+            ], 
+            [
+                'name' => 'Bachelor in Interior Architecture'
+            ],
+            [
+                'name' => 'Bachelor in Chemical Engineering'
+            ], 
+            [
+                'name' => 'Bachelor in Process Instrumentation & Control'
+            ],
+            [
+                'name' => 'Bachelor in Electrical Engineering'
+            ], 
+            [
+                'name' => 'Bachelor in Electronics and Communications Engineering'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoHS = $UoB->colleges()->where('name', 'College of Health and Sport Sciences')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor in Nursing Completion'
+            ],
+            [
+                'name' => 'Bachelor in Physical Education'
+            ],
+            [
+                'name' => 'Bachelor in Nursing'
+            ],
+            [
+                'name' => 'Bachelor in Radiologic Diagnostic Technology'
+            ], 
+            [
+                'name' => 'Bachelor in Pharmacy'
+            ], 
+            [
+                'name' => 'Bachelor in Medical Laboratory Sciences'
+            ], 
+            [
+                'name' => 'Bachelor in Radiology Diagnostic Technology Completion'
+            ],
+            [
+                'name' => 'Bachelor in Medical Laboratory Science Completion'
+            ],
+            [
+                'name' => 'Bachelor in Pharmacy Completion'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoHS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoIT = $UoB->colleges()->where('name', 'College of Information Technology')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor in Cybersecurity'
+            ],
+            [
+                'name' => 'Bachelor in in Network Engineering'
+            ], 
+            [
+                'name' => 'Bachelor in Information Systems'
+            ],
+            [
+                'name' => 'Bachelor in Computer Science'
+            ], 
+            [
+                'name' => 'Bachelor in Software Engineering' 
+            ],
+            [
+                'name' => 'Bachelor in Cloud Computing '
+            ],
+            [
+                'name' => 'Bachelor in Computer Engineering'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoIT->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoL = $UoB->colleges()->where('name', 'College of Law')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor in Law'
+            ]
+
+        ]; 
+        foreach ($majors as $major) {
+            $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoS = $UoB->colleges()->where('name', 'College of Science')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor in Mathematics'
+            ], 
+            [
+                'name' => 'Bachelor in Actuarial Sciences'
+            ], 
+            [
+                'name' => 'Bachelor in Chemistry'
+            ],
+            [
+                'name' => 'Bachelor in Statistics and Data Science'
+            ],
+            [
+                'name' => 'Bachelor in Biology'
+            ], 
+            [
+                'name' => 'Bachelor in in Physics'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoS->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
+        $CoBT = $UoB->colleges()->where('name', 'Bahrain Teachers College')->firstOrFail(); 
+        $majors =[
+            [
+                'name' => 'Bachelor of Primary Education'
+            ]
+        ]; 
+        foreach ($majors as $major) {
+            $CoBT->majors()->updateOrCreate(['name' => $major['name']], $major);
+        }
+
     }
 }
