@@ -3,6 +3,25 @@
         <h1 class="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center">
             {{ $major->name }}
         </h1>
+
+    @if(
+        empty($major->description) && empty($major->duration) &&
+        empty($major->Study_Plan) && empty($major->Teaching_Methods) &&
+        empty($major->Assessment_Methods) && empty($major->Skills) &&
+        empty($major->Career_Opportunities) && empty($major->video_link)
+    )
+
+    <div class="bg-white shadow rounded-2xl p-10 text-center border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">
+            Coming Soon. Stay Tuned. 
+        </h2>
+
+        <p class="text-gray-500 max-w-lg mx-auto">
+            We're currently working on adding accurate informations for this major.  
+        </p>
+    </div>
+
+    @else
         @if($major->video_link)
 
             <video class="w-full h-64 rounded-xl" controls>
@@ -91,5 +110,6 @@
                 Back to College
             </a>
         </div>
+    @endif
     </div>
 </x-layout>

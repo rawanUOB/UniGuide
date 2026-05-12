@@ -41,7 +41,7 @@ def retrain_with_real_data():
     y_synthetic = []
     
     for i in range(len(synthetic)):
-        for _ in range(20):  
+        for _ in range(50):  
             noise = np.random.uniform(-0.05, 0.05, size=synthetic[TRAITS].iloc[i].shape)
             sample = np.clip(synthetic[TRAITS].iloc[i].values + noise, 0.0, 1.0)
             X_synthetic.append(sample)
