@@ -14,11 +14,11 @@ REQUIREMENTS = {
         "Stress_Tolerance": 0.8,
         "Empathy": 0.7,
     },
-    "Medicine (Dermatology)": {
+    "Medicine (Dermatology Path)": {
         "Biology_Interest": 0.75,
         "Aesthetic_Sensitivity": 0.75,
     },
-    "Medicine (Neurology)": {
+    "Medicine (Neurology Path)": {
         "Biology_Interest": 0.85,
         "Analytical_Thinking": 0.7,
         "Patience": 0.7,
@@ -83,7 +83,7 @@ def cosine_recommendation(user_traits, data):
     recommendations = []
     for idx in top3_majors:
         recommendations.append({
-            'Major': data.iloc[idx]['Major'],
+            'Major': filtered.iloc[idx]['Major'],
             'Score': round(float(similarities_scores[idx]), 3),
             'Percentage' : round(float(similarities_scores[idx]) * 100, 1)
         })
@@ -99,4 +99,3 @@ def tree_predict(user_traits):
     with open(model_path, 'rb') as f: 
         model = pickle.load(f)
     return model.predict([user_traits])[0]
-    
