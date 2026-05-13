@@ -4,6 +4,54 @@ import pickle
 import os
 from sklearn.metrics.pairwise import cosine_similarity
 
+# Hard requirements to help results logics, so for example a student 
+# should have a high intrest in bio in order for a medicine major to me choosen for them
+REQUIREMENTS = {
+    #for medicine feilds: 
+    "Medicine (General)": {
+        "Biology_Interest": 0.8,
+        "Patience": 0.8,
+        "Stress_Tolerance": 0.8,
+        "Empathy": 0.7,
+    },
+    "Medicine (Dermatology)": {
+        "Biology_Interest": 0.75,
+        "Aesthetic_Sensitivity": 0.75,
+    },
+    "Medicine (Neurology)": {
+        "Biology_Interest": 0.85,
+        "Analytical_Thinking": 0.7,
+        "Patience": 0.7,
+    },
+    "Nursing": {
+        "Patience": 0.75,
+        "Stress_Tolerance": 0.75,
+        "Biology_Interest" : 0.75
+    },
+    "Psychology": {
+        "Empathy": 0.8,
+        "Research_Drive": 0.65,
+        "Patience": 0.7,
+    },
+    #for other majors that needs it: 
+    "Police Studies": {
+        "Ethics": 0.8,
+        "Stress_Tolerance": 0.75,
+        "Risk_Taking": 0.6,
+    },
+    "Sports Science": {
+        "Fitness_Interest": 0.85,
+    },
+}
+
+def Hard_requirements(user_ans, major_name):
+    if major_name not in REQUIREMENTS:
+        return True
+    for trait, min_val in REQUIREMENTS[major_name].items():
+        if user_ans[trait] < min_val:
+            return False
+    return True
+
 TRAITS = [
     'Math', 'Creativity', 'Problem_Solving', 'Communication_Skills',
     'Technology_Interest', 'Leadership', 'Analytical_Thinking',
@@ -19,7 +67,15 @@ def load_data():
     return pd.read_csv(data_path)
 
 def cosine_recommendation(user_traits, data):
-    features = data[TRAITS].values
+    user_ans = dict(zip(TRAITS, user_traits))
+    results =[]
+    for idx, row in data.iterrows():
+        major_name = row['Major']
+        if Hard_requirements(user_ans, major_name):
+            results.append(idx)
+    filtered = data.loc[results]
+
+    features = filtered[TRAITS].values
     similarities_scores = cosine_similarity([user_traits], features)[0]
 
     top3_majors = similarities_scores.argsort()[-3:][::-1]
