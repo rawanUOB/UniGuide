@@ -86,7 +86,7 @@ class chatInput(BaseModel):
 def chatbot(chat: chatInput):
     try: 
         chatResponse = requests.post("http://localhost:11434/api/generate", json={
-            "model" : "claude-haiku-4-5-20251001",
+            "model" : "llama3.2",
             "prompt" : f"""You are UniGuide a helpful university assistant for students in Bahrain.
             You will be helping students understand university majors, career paths and academic choices.
             Keep ALL answers under 4 sentences maximum concise, frindly, simple and relevant to universities in Bahrain.
