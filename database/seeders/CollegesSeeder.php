@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class CollegesSeeder extends Seeder
 {
@@ -13,9 +14,9 @@ class CollegesSeeder extends Seeder
     public function run(): void
     {
 
-        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
         \App\Models\College::truncate();
-        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
 
         $polyticnic = \App\Models\University::where('name', 'Bahrain Polytechnic')->first();
         $polyticnic ->colleges()->createMany ([
