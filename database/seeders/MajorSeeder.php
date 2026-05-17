@@ -3080,6 +3080,7 @@ class MajorSeeder extends Seeder
 
 
         $BIBF = \App\Models\University::where('name', 'Bahrain Institute of Banking and Finance')->firstOrFail();
+
         $BFT = $BIBF->colleges()->where('name', 'BSc in Banking with Financial Technology')->firstOrFail();
         $majors =[
             [
@@ -3237,202 +3238,140 @@ class MajorSeeder extends Seeder
         }
 
 
+    $UoB = \App\Models\University::where('name', 'University of Bahrain')->first();
 
-        $UoB = \App\Models\University::where('name', 'University of Bahrain')->firstOrFail();
-        $CoA = $UoB->colleges()->where('name', 'College of Arts')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor in Arabic Language and Literature'
-            ],
-            [
-                'name' => 'Bachelor in Islamic Studies'
-            ],
-            [
-                'name' => 'Bachelor in Mass Communication'
-            ],
-            [
-                'name' => 'Bachelor in Tourism'
-            ],
-            [
-                'name' => 'Bachelor in Arts and Design'
-            ],
-            [
-                'name' => 'Bachelor in English Language and Literature'
-            ],
-            [
-                'name' => 'Bachelor in History'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoA->majors()->updateOrCreate(['name' => $major['name']], $major);
+            if ($CoAS = $UoB->colleges()->where('name', 'College of Applied Studies')->first()) {
+    $majors = [
+        ['name' => 'Associate Diploma in Networks Administration'],
+        ['name' => 'Associate Diploma in Cybersecurity Operations'],
+        ['name' => 'Associate Diploma in Web and Multimedia Development'],
+        ['name' => 'Associate Diploma in Business Administration'],
+        ['name' => 'Associate Diploma in Accounting'],
+        ['name' => 'Associate Diploma in Office Management'],
+        ['name' => 'Associate Diploma in Industrial Engineering Technology'],
+        ['name' => 'Associate Diploma in Electrical Engineering'],
+        ['name' => 'Associate Diploma in Mechanical Engineering'],
+    ];
+
+    foreach ($majors as $major) {
+        $CoAS->majors()->updateOrCreate(['name' => $major['name']], $major);
+    }
+}
+
+
+        if ($CoA = $UoB->colleges()->where('name', 'College of Arts')->first()) {
+            $majors = [
+                ['name' => 'B.A. in Arabic Language and Literature'],
+                ['name' => 'B.A. in Islamic Studies'],
+                ['name' => 'B.A. in Mass Communication'],
+                ['name' => 'B.A. in Tourism'],
+                ['name' => 'B.A. in Arts and Design'],
+                ['name' => 'B.A. in English Language and Literature'],
+                ['name' => 'B.A. in History'],
+            ];
+            foreach ($majors as $major) {
+                $CoA->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
 
-        $CoBA = $UoB->colleges()->where('name', 'College of Business Administration')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor Business Management'
-            ],
-            [
-                'name' => 'Bachelor in Marketing'
-            ],
-            [
-                'name' => 'Bachelor in Entrepreneurship'
-            ],
-            [
-                'name' => 'Bachelor in Islamic Banking & Finance'
-            ],
-            [
-                'name' => 'Bachelor in Accounting'
-            ],
-            [
-                'name' => 'Bachelor in Banking & Finance'
-            ],
-            [
-                'name' => 'Bachelor in International Business And Economics'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoBA->majors()->updateOrCreate(['name' => $major['name']], $major);
+        if ($CoBA = $UoB->colleges()->where('name', 'College of Business Administration')->first()) {
+            $majors = [
+                ['name' => 'B.Sc. in Business Management'],
+                ['name' => 'B.Sc. in Marketing'],
+                ['name' => 'B.Sc. in Entrepreneurship'],
+                ['name' => 'B.Sc. in Islamic Banking & Finance'],
+                ['name' => 'B.Sc. in Accounting'],
+                ['name' => 'B.Sc. in Banking & Finance'],
+                ['name' => 'B.Sc. in International Business And Economics'],
+            ];
+            foreach ($majors as $major) {
+                $CoBA->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
 
-        $CoE = $UoB->colleges()->where('name', 'College of Engineering')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor in Mechanical Engineering'
-            ],
-            [
-                'name' => 'Bachelor in Civil Engineering'
-            ],
-            [
-                'name' => 'Bachelor of Architecture'
-            ],
-            [
-                'name' => 'Bachelor in Interior Architecture'
-            ],
-            [
-                'name' => 'Bachelor in Chemical Engineering'
-            ],
-            [
-                'name' => 'Bachelor in Process Instrumentation & Control'
-            ],
-            [
-                'name' => 'Bachelor in Electrical Engineering'
-            ],
-            [
-                'name' => 'Bachelor in Electronics and Communications Engineering'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
+
+        if ($CoE = $UoB->colleges()->where('name', 'College of Engineering')->first()) {
+            $majors = [
+                ['name' => 'B.Sc. in Mechanical Engineering'],
+                ['name' => 'B.Sc. in Civil Engineering'],
+                ['name' => 'Bachelor of Architecture'],
+                ['name' => 'B.Sc. in Interior Architecture'],
+                ['name' => 'B.Sc. in Chemical Engineering'],
+                ['name' => 'B.Sc. in Process Instrumentation & Control Engineering'],
+                ['name' => 'B.Sc. in Electrical Engineering'],
+                ['name' => 'B.Sc. in Electronics and Communications Engineering'],
+            ];
+            foreach ($majors as $major) {
+                $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
 
-        $CoHS = $UoB->colleges()->where('name', 'College of Health and Sport Sciences')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor in Nursing Completion'
-            ],
-            [
-                'name' => 'Bachelor in Physical Education'
-            ],
-            [
-                'name' => 'Bachelor in Nursing'
-            ],
-            [
-                'name' => 'Bachelor in Radiologic Diagnostic Technology'
-            ],
-            [
-                'name' => 'Bachelor in Pharmacy'
-            ],
-            [
-                'name' => 'Bachelor in Medical Laboratory Sciences'
-            ],
-            [
-                'name' => 'Bachelor in Radiology Diagnostic Technology Completion'
-            ],
-            [
-                'name' => 'Bachelor in Medical Laboratory Science Completion'
-            ],
-            [
-                'name' => 'Bachelor in Pharmacy Completion'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoHS->majors()->updateOrCreate(['name' => $major['name']], $major);
+
+        if ($CoHS = $UoB->colleges()->where('name', 'College of Health and Sport Sciences')->first()) {
+            $majors = [
+                ['name' => 'B.Sc. in Nursing'],
+                ['name' => 'B.Sc. in Physical Education'],
+                ['name' => 'B.Sc. in Medical Laboratory Science'],
+                ['name' => 'B.Sc. in Radiology Diagnostic'],
+                ['name' => 'B.Sc. in Pharmacy'],
+            ];
+            foreach ($majors as $major) {
+                $CoHS->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
+        } else {
+            $this->command->warn("College of Health and Sport Sciences not found.");
         }
 
-        $CoIT = $UoB->colleges()->where('name', 'College of Information Technology')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor in Cybersecurity'
-            ],
-            [
-                'name' => 'Bachelor in in Network Engineering'
-            ],
-            [
-                'name' => 'Bachelor in Information Systems'
-            ],
-            [
-                'name' => 'Bachelor in Computer Science'
-            ],
-            [
-                'name' => 'Bachelor in Software Engineering'
-            ],
-            [
-                'name' => 'Bachelor in Cloud Computing '
-            ],
-            [
-                'name' => 'Bachelor in Computer Engineering'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoIT->majors()->updateOrCreate(['name' => $major['name']], $major);
+
+        if ($CoIT = $UoB->colleges()->where('name', 'College of Information Technology')->first()) {
+            $majors = [
+                ['name' => 'B.Sc. in Cybersecurity'],
+                ['name' => 'B.Sc. in Network Engineering'],
+                ['name' => 'B.Sc. in Information Systems'],
+                ['name' => 'B.Sc. in Computer Science'],
+                ['name' => 'B.Sc. in Software Engineering'],
+                ['name' => 'B.Sc. in Computer Engineering'],
+            ];
+            foreach ($majors as $major) {
+                $CoIT->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
 
-        $CoL = $UoB->colleges()->where('name', 'College of Law')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor in Law'
-            ]
 
-        ];
-        foreach ($majors as $major) {
-            $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
+        if ($CoL = $UoB->colleges()->where('name', 'College of Law')->first()) {
+            $majors = [
+                ['name' => 'L.L.B. in Law'],
+            ];
+            foreach ($majors as $major) {
+                $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
 
-        $CoS = $UoB->colleges()->where('name', 'College of Science')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor in Mathematics'
-            ],
-            [
-                'name' => 'Bachelor in Actuarial Sciences'
-            ],
-            [
-                'name' => 'Bachelor in Chemistry'
-            ],
-            [
-                'name' => 'Bachelor in Statistics and Data Science'
-            ],
-            [
-                'name' => 'Bachelor in Biology'
-            ],
-            [
-                'name' => 'Bachelor in in Physics'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoS->majors()->updateOrCreate(['name' => $major['name']], $major);
+
+        if ($CoS = $UoB->colleges()->where('name', 'College of Science')->first()) {
+            $majors = [
+                ['name' => 'B.Sc. in Physics'],
+                ['name' => 'B.Sc. in Mathematics'],
+                ['name' => 'B.Sc. in Actuarial Science'],
+                ['name' => 'B.Sc. in Statistics and Data Science'],
+                ['name' => 'B.Sc. in Chemistry'],
+                ['name' => 'B.Sc. in Biology'],
+            ];
+            foreach ($majors as $major) {
+                $CoS->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
 
-        $CoBT = $UoB->colleges()->where('name', 'Bahrain Teachers College')->firstOrFail();
-        $majors =[
-            [
-                'name' => 'Bachelor of Primary Education'
-            ]
-        ];
-        foreach ($majors as $major) {
-            $CoBT->majors()->updateOrCreate(['name' => $major['name']], $major);
+    
+        if ($CoBT = $UoB->colleges()->where('name', 'Bahrain Teachers College')->first()) {
+            $majors = [
+                ['name' => 'Bachelor of Primary Education'],
+            ];
+            foreach ($majors as $major) {
+                $CoBT->majors()->updateOrCreate(['name' => $major['name']], $major);
+            }
         }
+
 
     }
 }
