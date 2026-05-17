@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Scholarship;
+use Illuminate\Support\Facades\Schema;
 
 class ScholarshipsSeeder extends Seeder
 {
@@ -13,9 +14,9 @@ class ScholarshipsSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
         Scholarship::truncate();
-        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
 
         Scholarship::create([
         'name' => 'Ministry of Education Scholarships',

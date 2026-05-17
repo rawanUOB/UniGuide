@@ -13,13 +13,13 @@ class MajorSeeder extends Seeder
     public function run(): void
     {
         $BP = \App\Models\University::where('name', 'Bahrain Polytechnic')->firstOrFail();
-        $ICT = $BP->colleges()->where('name', 'School of ICT')->firstOrFail(); //so that if the college is not found the system will not crash. 
+        $ICT = $BP->colleges()->where('name', 'School of ICT')->firstOrFail(); //so that if the college is not found the system will not crash.
         $majors = [
             [
                 'name' => 'Bachelor of Cybersecurity',
                 'description' => 'Cybersecurity in Bahrain Polytechnic is focused on protecting the network, digital systems and data from cyber threats
-            The students will start learning core IT foundations such as programming, learning about systems and databases then they will dive into 
-            cybersecurity topics such as ethical hacking, and defenses. 
+            The students will start learning core IT foundations such as programming, learning about systems and databases then they will dive into
+            cybersecurity topics such as ethical hacking, and defenses.
             The program follows a hands-on project based approach that prepares students for real world challenges.',
                 'duration' => '4 years',
                 'Study_Plan' => [
@@ -50,13 +50,13 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Programming ',
-                'description' => 'Programming at Bahrain Polytechnic is focused on preparing students for careers in software development and modern computing technologies through practical and project-based learning. Students develop strong foundations in programming languages, application development, software design, and problem solving. The program emphasizes hands-on 
+                'description' => 'Programming at Bahrain Polytechnic is focused on preparing students for careers in software development and modern computing technologies through practical and project-based learning. Students develop strong foundations in programming languages, application development, software design, and problem solving. The program emphasizes hands-on
                 experience, teamwork, critical thinking, and real-world industry projects to help students build practical technical skills required in the software industry.',
                 'duration' => '4 years',
                 'Study_Plan' => [
-                    'Year 1' => 'Focuses on building an IT foundation skills in computer systems, programming, databases, networks, operating systems and 
+                    'Year 1' => 'Focuses on building an IT foundation skills in computer systems, programming, databases, networks, operating systems and
                 mathematical understanding.',
-                    'Year 2' => 'Will dive deeper into programming languages, databases, web development, information security fundamentals and start 
+                    'Year 2' => 'Will dive deeper into programming languages, databases, web development, information security fundamentals and start
                 applying the knowledge into projects.',
                     'Year3' => 'Learn advanced programming topics such as AI, mobile programming, development of games and advanced programming.',
                     'Year 4' => 'Focuses on the graduation project and Industry based learning experience.',
@@ -108,7 +108,7 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Science in Cloud Computing and Information Systems',
-                'description' => 'Cloud Computing and Information Systems at Bahrain Polytechnic is focused on developing students knowledge in cloud technologies, enterprise systems, and modern IT solutions. Students learn cloud architecture, DevOps practices, database systems, virtualization, and information systems management. The program emphasizes practical 
+                'description' => 'Cloud Computing and Information Systems at Bahrain Polytechnic is focused on developing students knowledge in cloud technologies, enterprise systems, and modern IT solutions. Students learn cloud architecture, DevOps practices, database systems, virtualization, and information systems management. The program emphasizes practical
                 implementation, problem solving, and industry-based projects to prepare graduates for careers in cloud computing, systems administration, and enterprise technology environments.',
                 'duration' => '4 years',
                 'Study_Plan' => [
@@ -137,7 +137,7 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Science in Data Analytics',
-                'description' => 'Data Analytics at Bahrain Polytechnic is focused on preparing students to analyze, interpret, and manage data to support decision-making and business intelligence. Students gain knowledge in data science, statistical analysis, data visualization, machine learning foundations, and database technologies. The program emphasizes analytical 
+                'description' => 'Data Analytics at Bahrain Polytechnic is focused on preparing students to analyze, interpret, and manage data to support decision-making and business intelligence. Students gain knowledge in data science, statistical analysis, data visualization, machine learning foundations, and database technologies. The program emphasizes analytical
                 thinking, practical data handling, and real-world datasets to help students develop skills required for modern data-driven industries.',
                 'duration' => '4 years',
                 'Study_Plan' => [
@@ -166,7 +166,7 @@ class MajorSeeder extends Seeder
             ]
         ];
 
-        //so if the major already exists it will update it not duplicate it: 
+        //so if the major already exists it will update it not duplicate it:
         foreach ($majors as $major) {
             $ICT->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
@@ -845,7 +845,7 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of  Industrial Design and Process  Engineering',
-                'description' => 'Industrial Design and Process engineering focuses on improving how products are designed and how systems work in industries. It teaches you how to make processes faster, cheaper, safer and more efficient. Students learn how factories, companies and systems operate and how to design better products while considering people, technology and the 
+                'description' => 'Industrial Design and Process engineering focuses on improving how products are designed and how systems work in industries. It teaches you how to make processes faster, cheaper, safer and more efficient. Students learn how factories, companies and systems operate and how to design better products while considering people, technology and the
             environment.',
                 'duration' => '4 years',
                 'Study_Plan' =>
@@ -884,7 +884,7 @@ class MajorSeeder extends Seeder
         $majors = [
             [
                 'name' => 'Bachelor of Medicine',
-                'description' => 'Medicine at RCSI Bahrain is focused on preparing students to become highly skilled doctors through a globally recognized program. Students gain strong foundations in biomedical sciences, clinical knowledge, and patient care from early stages. The program emphasizes hands-on clinical experience, communication skills, professionalism, and 
+                'description' => 'Medicine at RCSI Bahrain is focused on preparing students to become highly skilled doctors through a globally recognized program. Students gain strong foundations in biomedical sciences, clinical knowledge, and patient care from early stages. The program emphasizes hands-on clinical experience, communication skills, professionalism, and
             real-world healthcare environments. Graduates receive internationally recognized degrees from RCSI and the National University of Ireland, allowing global career opportunities.',
                 'duration' => '5 to 6 years',
                 'Study_Plan' =>
@@ -938,7 +938,7 @@ class MajorSeeder extends Seeder
         $majors = [
             [
                 'name' => 'Bachelor of Nursing ',
-                'description' => 'Nursing at RCSI Bahrain prepares students to become compassionate, skilled and professional nurses through a globally recognized program. Students develop strong clinical, communication and patient care skills through a combination of academic learning and hands-on clinical placements. The program emphasizes teamwork, leadership, ethical 
+                'description' => 'Nursing at RCSI Bahrain prepares students to become compassionate, skilled and professional nurses through a globally recognized program. Students develop strong clinical, communication and patient care skills through a combination of academic learning and hands-on clinical placements. The program emphasizes teamwork, leadership, ethical
             practice and real-world healthcare experience.',
                 'duration' => '4 years',
                 'Study_Plan' => [
@@ -989,7 +989,7 @@ class MajorSeeder extends Seeder
         $majors = [
             [
                 'name' => 'Bachelor in Interior Design Engineering',
-                'description' => 'Interior Design Engineering combines creativity with engineering to design functional, safe and visually appealing indoor spaces. Students learn how to design interiors while understanding construction, materials, lighting, acoustics and building systems. The program mixes art, design, and technology to prepare students for real-world 
+                'description' => 'Interior Design Engineering combines creativity with engineering to design functional, safe and visually appealing indoor spaces. Students learn how to design interiors while understanding construction, materials, lighting, acoustics and building systems. The program mixes art, design, and technology to prepare students for real-world
             interior and architectural projects with a focus on sustainability and modern design practices.',
                 'duration' => '4 years',
                 'Study_Plan' => [
@@ -1094,7 +1094,7 @@ class MajorSeeder extends Seeder
             $AaFS->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
 
-        $CaMT = $GU->colleges()->where('name', 'College of Communication & Media Technologies')->firstOrFail(); 
+        $CaMT = $GU->colleges()->where('name', 'College of Communication & Media Technologies')->firstOrFail();
         $majors = [
             [
                 'name' => 'Bachelor in Mass Communications',
@@ -1112,7 +1112,7 @@ class MajorSeeder extends Seeder
             [
                 'name' => 'Bachelor in Law',
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
@@ -1122,20 +1122,20 @@ class MajorSeeder extends Seeder
         $CoBM = $AUoB->colleges()->where('name', 'College of Business and Managment')->firstOrFail();
         $majors = [
             [
-                'name' => 'Bachelor of Business Administration in Digital Marketing and Social Media' 
-            ], 
+                'name' => 'Bachelor of Business Administration in Digital Marketing and Social Media'
+            ],
             [
-                'name' => 'Bachelor of Business Administration in Finance' 
-            ], 
+                'name' => 'Bachelor of Business Administration in Finance'
+            ],
             [
-               'name' => 'Bachelor of Business Administration in Human Resource Management' 
+               'name' => 'Bachelor of Business Administration in Human Resource Management'
             ]
         ];
         foreach ($majors as $major) {
             $CoBM->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
 
-        $CoEC = $AUoB->colleges()->where('name','College of Engineering and Computing')->firstOrFail(); 
+        $CoEC = $AUoB->colleges()->where('name','College of Engineering and Computing')->firstOrFail();
         $majors= [
             [
                 'name' => 'Bachelor of Science in Computer Engineering'
@@ -1154,7 +1154,7 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Science in Mechanical Engineering'
-            ], 
+            ],
             [
                 'name' => 'Bachelor of Science in Industrial Engineering'
             ],
@@ -1166,7 +1166,7 @@ class MajorSeeder extends Seeder
             $CoEC->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
 
-        $CoMD = $AUoB->colleges()->where('name','College of Media and Design')->firstOrFail(); 
+        $CoMD = $AUoB->colleges()->where('name','College of Media and Design')->firstOrFail();
         $majors = [
             [
                 'name' => 'Bachelor of Arts in Multimedia Design'
@@ -1192,7 +1192,7 @@ class MajorSeeder extends Seeder
             $CoCS->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
 
-        $CoAFS = $UTB->colleges()->where('name','College of Administrative & Financial Science')->firstOrFail(); 
+        $CoAFS = $UTB->colleges()->where('name','College of Administrative & Financial Science')->firstOrFail();
         $majors=[
             [
                 'name' => 'Bachelor of Science in Accounting and Finance'
@@ -1208,7 +1208,7 @@ class MajorSeeder extends Seeder
             $CoAFS->majors()->updateOrCreate(['name' => $major['name']], $major);
         };
 
-        $CoE = $UTB->colleges()->where('name','College of Engineering')->firstOrFail(); 
+        $CoE = $UTB->colleges()->where('name','College of Engineering')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor of Science in Environmental Engineering'
@@ -3044,7 +3044,7 @@ class MajorSeeder extends Seeder
         $CoBA = $KU->colleges()->where('name','College of Business Administration')->firstOrFail();
         $majors = [
             [
-               'name' => 'Bachelor in Business Management' 
+               'name' => 'Bachelor in Business Management'
             ],
             [
                 'name' => 'Bachelor in Finance & Accounting'
@@ -3057,7 +3057,7 @@ class MajorSeeder extends Seeder
             $CoBA->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoL = $KU->colleges()->where('name','College of Law')->firstOrFail(); 
+        $CoL = $KU->colleges()->where('name','College of Law')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor of Law'
@@ -3110,7 +3110,7 @@ class MajorSeeder extends Seeder
             $BAF->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $BEM = $BIBF->colleges()->where('name','BSc Economics & Management')->firstOrFail(); 
+        $BEM = $BIBF->colleges()->where('name','BSc Economics & Management')->firstOrFail();
         $majors = [
             [
                 'name' => 'BSc Economics & Management'
@@ -3120,7 +3120,7 @@ class MajorSeeder extends Seeder
             $BEM->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $DSBM = $BIBF->colleges()->where('name', 'BSc Data Science and Business Analytics')->firstOrFail(); 
+        $DSBM = $BIBF->colleges()->where('name', 'BSc Data Science and Business Analytics')->firstOrFail();
         $majors = [
             [
                 'name' => 'BSc Data Science and Business Analytics'
@@ -3152,10 +3152,10 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor of Science in Artificial Intelligence'
-            ], 
+            ],
             [
                 'name' => 'Bachelor of Science in Data Science'
-            ], 
+            ],
             [
                 'name' => 'Bachelor of Science in Graphic and Multimedia Design/Technology'
             ]
@@ -3229,9 +3229,9 @@ class MajorSeeder extends Seeder
         $CoAS = $BUB->colleges()->where('name', 'College of Information and Communication Technology')->firstOrFail();
         $majors =[
             [
-                'name' => 'Bachelor in Pstchology' 
+                'name' => 'Bachelor in Pstchology'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoAS->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
@@ -3239,7 +3239,7 @@ class MajorSeeder extends Seeder
 
 
         $UoB = \App\Models\University::where('name', 'University of Bahrain')->firstOrFail();
-        $CoA = $UoB->colleges()->where('name', 'College of Arts')->firstOrFail(); 
+        $CoA = $UoB->colleges()->where('name', 'College of Arts')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor in Arabic Language and Literature'
@@ -3249,38 +3249,38 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor in Mass Communication'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Tourism'
             ],
             [
                 'name' => 'Bachelor in Arts and Design'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in English Language and Literature'
             ],
             [
                 'name' => 'Bachelor in History'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoA->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoBA = $UoB->colleges()->where('name', 'College of Business Administration')->firstOrFail(); 
+        $CoBA = $UoB->colleges()->where('name', 'College of Business Administration')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor Business Management'
             ],
             [
                 'name' => 'Bachelor in Marketing'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Entrepreneurship'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Islamic Banking & Finance'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Accounting'
             ],
@@ -3290,43 +3290,43 @@ class MajorSeeder extends Seeder
             [
                 'name' => 'Bachelor in International Business And Economics'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoBA->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoE = $UoB->colleges()->where('name', 'College of Engineering')->firstOrFail(); 
+        $CoE = $UoB->colleges()->where('name', 'College of Engineering')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor in Mechanical Engineering'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Civil Engineering'
             ],
             [
                 'name' => 'Bachelor of Architecture'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Interior Architecture'
             ],
             [
                 'name' => 'Bachelor in Chemical Engineering'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Process Instrumentation & Control'
             ],
             [
                 'name' => 'Bachelor in Electrical Engineering'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Electronics and Communications Engineering'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoE->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoHS = $UoB->colleges()->where('name', 'College of Health and Sport Sciences')->firstOrFail(); 
+        $CoHS = $UoB->colleges()->where('name', 'College of Health and Sport Sciences')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor in Nursing Completion'
@@ -3339,13 +3339,13 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor in Radiologic Diagnostic Technology'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Pharmacy'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Medical Laboratory Sciences'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Radiology Diagnostic Technology Completion'
             ],
@@ -3355,27 +3355,27 @@ class MajorSeeder extends Seeder
             [
                 'name' => 'Bachelor in Pharmacy Completion'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoHS->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoIT = $UoB->colleges()->where('name', 'College of Information Technology')->firstOrFail(); 
+        $CoIT = $UoB->colleges()->where('name', 'College of Information Technology')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor in Cybersecurity'
             ],
             [
                 'name' => 'Bachelor in in Network Engineering'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Information Systems'
             ],
             [
                 'name' => 'Bachelor in Computer Science'
-            ], 
+            ],
             [
-                'name' => 'Bachelor in Software Engineering' 
+                'name' => 'Bachelor in Software Engineering'
             ],
             [
                 'name' => 'Bachelor in Cloud Computing '
@@ -3383,30 +3383,30 @@ class MajorSeeder extends Seeder
             [
                 'name' => 'Bachelor in Computer Engineering'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoIT->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoL = $UoB->colleges()->where('name', 'College of Law')->firstOrFail(); 
+        $CoL = $UoB->colleges()->where('name', 'College of Law')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor in Law'
             ]
 
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoL->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoS = $UoB->colleges()->where('name', 'College of Science')->firstOrFail(); 
+        $CoS = $UoB->colleges()->where('name', 'College of Science')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor in Mathematics'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Actuarial Sciences'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in Chemistry'
             ],
@@ -3415,21 +3415,21 @@ class MajorSeeder extends Seeder
             ],
             [
                 'name' => 'Bachelor in Biology'
-            ], 
+            ],
             [
                 'name' => 'Bachelor in in Physics'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoS->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
 
-        $CoBT = $UoB->colleges()->where('name', 'Bahrain Teachers College')->firstOrFail(); 
+        $CoBT = $UoB->colleges()->where('name', 'Bahrain Teachers College')->firstOrFail();
         $majors =[
             [
                 'name' => 'Bachelor of Primary Education'
             ]
-        ]; 
+        ];
         foreach ($majors as $major) {
             $CoBT->majors()->updateOrCreate(['name' => $major['name']], $major);
         }
